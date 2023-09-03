@@ -7,7 +7,7 @@ _constant() {
     script_version="v2023-09-03"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
-    node_set="http://127.0.0.1/speedtest/0"
+    node_set="https://ghproxy.com/https://raw.githubusercontent.com/i-abc/Speedtest/node/all-node.txt"
 
     # url_1为官方源，url_2为镜像源，皆会进行SHA-256检测
 
@@ -223,7 +223,7 @@ _get_node_list() {
     # 节点集合
     local node_url node_selection_1 node_selection_2 node_selection_3 first_line second_line
     _print_banner_1; echo -e "${blue}↓    ↓    ↓    ↓    ↓    ↓   测速节点列表   ↓    ↓    ↓    ↓    ↓    ↓${endc}"
-    echo "0. 自定义测速节点"
+    echo -e "0. \033[1m自定义测速节点\033[0m"
     curl -s "$node_set" | awk '$0!~/http/{print}'
     printf "${yellow}%-s${endc}" "请输入您想选择的节点序号: "
     read -r node_selection_1
@@ -366,7 +366,7 @@ _speedtest_go_test() {
         local jitter_c="13"
         # speedtest-go测试
         local node_name latency jitter download upload
-        "$work_dir"/speedtest-go --force-http-ping $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
+        "$work_dir"/speedtest-go $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
         # speedtest-go输出
         if [ -s "$work_dir"/speedtest-go-"$count".json ] && ! grep -q "Fatal" "$work_dir"/speedtest-go-"$count".json; then
             local node_name latency jitter download upload
@@ -431,7 +431,7 @@ _librespeed_cli_test() {
         local jitter_c="13"
         # librespeed-cli测试
         local node_name latency jitter download upload
-        "$work_dir"/librespeed-cli --json --no-icmp $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
+        "$work_dir"/librespeed-cli --json $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
         # librespeed-cli输出
         if [ -s "$work_dir"/librespeed-cli-"$count".json ]; then
             # 节点名称
@@ -567,12 +567,13 @@ _filter_option_speedtest_go() {
             _filter_option_0_para -m --multi
             _filter_option_0_para --no-download --no-download
             _filter_option_0_para --no-upload --no-upload
+            _filter_option_0_para --force-http-ping --force-http-ping
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
 }
 
-# librespeed
+# librespeed-cli
 _filter_option_librespeed_cli() {
     local file_input="$1"
     local file_output="$2"
@@ -591,6 +592,7 @@ _filter_option_librespeed_cli() {
             _filter_option_1_para --duration --duration
             _filter_option_0_para --no-download --no-download
             _filter_option_0_para --no-upload --no-upload
+            _filter_option_0_para --no-icmp --no-icmp
             _filter_option_0_para -4 --ipv4
             _filter_option_0_para -6 --ipv6
         done
@@ -671,18 +673,18 @@ _main() {
     _download_tar
     _check_tar_sha256
     _unzip_tar
-    #clear
+    clear
     _get_node_list
     _classify_node
-    #clear
+    clear
     _print_banner_1
     _print_banner_2
     _print_banner_3
-    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
-    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
-    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
     [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
-    #_rm_dir
+    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
+    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
+    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
+    _rm_dir
 }
 
 
