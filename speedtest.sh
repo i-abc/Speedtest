@@ -175,13 +175,13 @@ _make_dir() {
 _download_tar() {
     echo "$speedtest_cli_tar_url"
     echo "speedtest-cli下载中"
-    curl --progress-bar -o "$work_dir"/speedtest-cli.tgz "$speedtest_cli_tar_url"
+    curl --progress-bar -o "$work_dir"/speedtest-cli.tgz -L "$speedtest_cli_tar_url"
     echo "$speedtest_go_tar_url"
     echo "speedtest-go下载中"
-    curl --progress-bar -o "$work_dir"/speedtest-go.tar.gz "$speedtest_go_tar_url"
+    curl --progress-bar -o "$work_dir"/speedtest-go.tar.gz -L "$speedtest_go_tar_url"
     echo "$librespeed_cli_tar_url"
     echo "librespeed-cli下载中"
-    curl --progress-bar -o "$work_dir"/librespeed-cli.tar.gz "$librespeed_cli_tar_url"
+    curl --progress-bar -o "$work_dir"/librespeed-cli.tar.gz -L "$librespeed_cli_tar_url"
 }
 
 
