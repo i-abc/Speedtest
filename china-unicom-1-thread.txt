@@ -1,0 +1,9 @@
+                    大陆联通 单线程测速，v2023-09-03
+speedtest-cli,湖南 联通5G       ,-s 4870
+speedtest-cli,江苏无锡 联通     ,-s 45170
+speedtest-cli,四川成都 联通     ,-s 35527
+speedtest-cli,福建福州 联通     ,-s 56354
+speedtest-cli,辽宁沈阳 联通     ,-s 37235
+speedtest-cli,海南三亚 联通     ,-s 54432
+speedtest-cli,河南郑州 联通5G   ,-s 36646
+iperf3,宿迁 联通/电信    ,-c 103.239.244.210 -p 22222
