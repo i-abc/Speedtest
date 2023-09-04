@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-03"
+    script_version="v2023-09-04"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -518,7 +518,7 @@ _iperf3_test() {
             done
             # 上传速度，Mbps
             if [ -s "$work_dir"/iperf3-"$count".json ]; then
-                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'Bytes ' '{ print $2 }' | awk '{ print $1 }' )"
                 _check_num "$upload" || upload="  失败"
                 _check_num "$upload" || upload_c="17"
                 _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
@@ -537,7 +537,7 @@ _iperf3_test() {
             done
             # 下载速度，Mbps
             if [ -s "$work_dir"/iperf3-"$count".json ]; then
-                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'Bytes ' '{ print $2 }' | awk '{ print $1 }' )"
                 _check_num "$download" || download="  失败"
                 _check_num "$download" || download_c="17"
                 _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
@@ -568,11 +568,11 @@ _iperf3_test() {
                 jitter=" 跳过"
                 jitter_c="15"
                 # 下载、上传速度，Mbps
-                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'Bytes ' '{ print $2 }' | awk '{ print $1 }' )"
                 _check_num "$upload" || upload="  失败"
                 _check_num "$upload" || upload_c="17"
                 _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
-                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'Bytes ' '{ print $2 }' | awk '{ print $1 }' )"
                 _check_num "$download" || download="  失败"
                 _check_num "$download" || download_c="17"
                 _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
