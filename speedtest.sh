@@ -78,6 +78,13 @@ _print_banner_3() {
     printf "%-s%-s%-s%-s%-s\n" "测速节点          " "下载/Mbps      " "上传/Mbps      " "延迟/ms      " "抖动/ms"
 }
 
+_print_banner_4() {
+    printf "%-70s\n" "-" | sed 's)\s)-)g'
+    echo "当前时间：$(date +"%Y-%m-%d %H:%M:%S %Z")"
+    echo "北京时间: $(TZ=Asia/Shanghai date --rfc-3339=seconds)"
+    echo
+}
+
 
 ########## 确认架构及其对应版本的程序 ##########
 
@@ -287,16 +294,16 @@ _classify_node() {
         local first_column
         first_column=$( awk -F, NR==${i}'{print $1}' "$work_dir"/all-node.txt )
         # speedtest-cli
-        if [ "$first_column" == "speedtest-cli" ]; then
+        if [[ "$first_column" =~ "speedtest-cli" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/speedtest-cli-node.txt
         # speedtest-go
-        elif [ "$first_column" == "speedtest-go" ]; then
+        elif [[ "$first_column" =~ "speedtest-go" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/speedtest-go-node.txt
         # librespeed-cli
-        elif [ "$first_column" == "librespeed-cli" ]; then
+        elif [[ "$first_column" =~ "librespeed-cli" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/librespeed-cli-node.txt
         # iperf3
-        elif [ "$first_column" == "iperf3" ]; then
+        elif [[ "$first_column" =~ "iperf3" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/iperf3-node.txt
         # 自定义的横幅
         elif [ "$first_column" != "" ]; then
@@ -662,7 +669,6 @@ _check_num() {
 
 _rm_dir() {
     rm -rf "$work_dir"
-    echo "残余文件删除成功"
 }
 
 ########## main ##########
@@ -686,6 +692,7 @@ _main() {
     _print_banner_1
     _print_banner_2
     _print_banner_3
+    _print_banner_4
     [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
     [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
     [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
