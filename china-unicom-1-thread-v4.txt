@@ -1,4 +1,4 @@
-大陆联通 单线程测速，v2023-09-04
+大陆联通 IPv4 单线程测速，v2023-09-04
 “宿迁 联通”为自建节点，带宽在800Mbps左右
 speedtest-go,江苏无锡 联通     ,--custom-url https://speedtest2.niutk.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,四川成都 联通     ,--custom-url http://speedtest.cnscn96655.com:8080/speedtest/upload.php  --force-http-ping -t 1
