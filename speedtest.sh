@@ -60,11 +60,11 @@ _constant() {
 ########## 横幅 ###########
 
 _print_banner_1() {
-     echo "----------------------- 多功能 自更新 测速脚本 -----------------------"
+     echo "------------------------ 多功能 自更新 测速脚本 ------------------------"
      echo -e " Version               : ${green}${script_version}${endc}"
      echo -e " Usage                 : ${yellow}bash <(curl -sL bash.icu/speedtest)${endc}"
      echo -e " GitHub                : ${green}https://github.com/i-abc/speedtest${endc}"
-     printf "%-70s\n" "-" | sed 's)\s)-)g'
+     printf "%-72s\n" "-" | sed 's)\s)-)g'
  }
 
 _print_banner_2() {
@@ -74,15 +74,15 @@ _print_banner_2() {
 }
 
 _print_banner_3() {
-    printf "%-70s\n" "-" | sed 's)\s)-)g'
-    printf "%-s%-s%-s%-s%-s\n" "测速节点          " "下载/Mbps      " "上传/Mbps      " "延迟/ms      " "抖动/ms"
+    printf "%-72s\n" "-" | sed 's)\s)-)g'
+    printf "%-s%-s%-s%-s%-s\n" "测速节点            " "下载/Mbps      " "上传/Mbps      " "延迟/ms      " "抖动/ms"
 }
 
 _print_banner_4() {
-    printf "%-70s\n" "-" | sed 's)\s)-)g'
+    printf "%-72s\n" "-" | sed 's)\s)-)g'
     echo "当前时间：$(date +"%Y-%m-%d %H:%M:%S %Z")"
     echo "北京时间: $(TZ=Asia/Shanghai date --rfc-3339=seconds)"
-    printf "%-70s\n" "-" | sed 's)\s)-)g'
+    printf "%-72s\n" "-" | sed 's)\s)-)g'
     echo
 }
 
