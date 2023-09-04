@@ -1,9 +1,0 @@
-                    大陆联通 八线程测速，v2023-09-03
-speedtest-go,湖南 联通5G       ,-s 4870 --force-http-ping -t 8
-speedtest-go,江苏无锡 联通     ,-s 45170 --force-http-ping -t 8
-speedtest-go,四川成都 联通     ,-s 35527 --force-http-ping -t 8
-speedtest-go,福建福州 联通     ,-s 56354 --force-http-ping -t 8
-speedtest-go,辽宁沈阳 联通     ,-s 37235 --force-http-ping -t 8
-speedtest-go,海南三亚 联通     ,-s 54432 --force-http-ping -t 8
-speedtest-go,河南郑州 联通5G   ,-s 36646 --force-http-ping -t 8
-iperf3,宿迁 联通/电信    ,-c 103.239.244.210 -p 22222 -P 8
