@@ -1,4 +1,4 @@
 1. 大陆联通多线程
-https://ghproxy.com/https://raw.githubusercontent.com/i-abc/Speedtest/node/china-unicom-m-thread.txt
+https://github.com/i-abc/Speedtest/raw/node/china-unicom-m-thread.txt
 2. 大陆联通单线程
-https://ghproxy.com/https://raw.githubusercontent.com/i-abc/Speedtest/node/china-unicom-1-thread.txt
+https://github.com/i-abc/Speedtest/raw/node/china-unicom-1-thread.txt

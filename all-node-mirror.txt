@@ -1,0 +1,4 @@
+1. 大陆联通多线程
+https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-m-thread.txt
+2. 大陆联通单线程
+https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-1-thread.txt
