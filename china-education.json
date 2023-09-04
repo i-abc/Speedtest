@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "南京大学 v4",
+    "server": "http://test.nju.edu.cn",
+    "dlURL": "/backend/garbage.php",
+    "ulURL": "/backend/empty.php",
+    "pingURL": "/backend/empty.php",
+    "getIpURL": "/backend/getIP.php"
+  },
+  {
+    "id": 2,
+    "name": "南京大学 v6",
+    "server": "http://test6.nju.edu.cn",
+    "dlURL": "/backend/garbage.php",
+    "ulURL": "/backend/empty.php",
+    "pingURL": "/backend/empty.php",
+    "getIpURL": "/backend/getIP.php"
+  },
+  {
+    "id": 3,
+    "name": "清华大学 v4",
+    "server": "http://iptv.tsinghua.edu.cn",
+    "dlURL": "/st_new_HB8/garbage.php",
+    "ulURL": "/st_new_HB8/empty.php",
+    "pingURL": "/st_new_HB8/empty.php",
+    "getIpURL": "/st_new_HB8/backend/st_new_HB8/getIP.php"
+  },
+  {
+    "id": 4,
+    "name": "清华大学 v6",
+    "server": "http://iptv.tsinghua.edu.cn",
+    "dlURL": "/st_new_HB8/garbage.php",
+    "ulURL": "/st_new_HB8/empty.php",
+    "pingURL": "/st_new_HB8/empty.php",
+    "getIpURL": "/st_new_HB8/getIP.php"
+  },
+  {
+    "id": 5,
+    "name": "中科大 v4",
+    "server": "http://test.ustc.edu.cn",
+    "dlURL": "/backend/garbage.php",
+    "ulURL": "/backend/empty.php",
+    "pingURL": "/backend/empty.php",
+    "getIpURL": "/backend/getIP.php"
+  },
+  {
+    "id": 6,
+    "name": "中科大 v6",
+    "server": "http://test6.ustc.edu.cn",
+    "dlURL": "/backend/garbage.php",
+    "ulURL": "/backend/empty.php",
+    "pingURL": "/backend/empty.php",
+    "getIpURL": "/backend/getIP.php"
+  }
+]
