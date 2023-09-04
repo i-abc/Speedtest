@@ -10,3 +10,7 @@ https://jihulab.com/i-abc/Speedtest/-/raw/node/china-mobile-1-thread.txt
 https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-m-thread.txt
 6. 大陆联通单线程
 https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-1-thread.txt
+7. 大陆教育网 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-education-v4.txt
+8. 大陆教育网 IPv6
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-education-v6.txt
