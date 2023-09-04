@@ -1,4 +1,12 @@
-1. 大陆联通多线程
+1. 大陆电信多线程
+https://github.com/i-abc/Speedtest/raw/node/china-telecom-m-thread.txt
+2. 大陆电信单线程
+https://github.com/i-abc/Speedtest/raw/node/china-telecom-1-thread.txt
+3. 大陆移动多线程
+https://github.com/i-abc/Speedtest/raw/node/china-mobile-m-thread.txt
+4. 大陆移动单线程
+https://github.com/i-abc/Speedtest/raw/node/china-mobile-1-thread.txt
+5. 大陆联通多线程
 https://github.com/i-abc/Speedtest/raw/node/china-unicom-m-thread.txt
-2. 大陆联通单线程
+6. 大陆联通单线程
 https://github.com/i-abc/Speedtest/raw/node/china-unicom-1-thread.txt
