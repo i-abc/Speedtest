@@ -692,11 +692,11 @@ _main() {
     _print_banner_1
     _print_banner_2
     _print_banner_3
-    _print_banner_4
     [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
     [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
     [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
     [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
+    _print_banner_4
     _rm_dir
 }
 
