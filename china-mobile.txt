@@ -1,0 +1,5 @@
+speedtest-cli,北京 移动         ,-o http://speedtest.bmcc.com.cn:8080/speedtest/upload.php
+speedtest-cli,四川成都 移动     ,-o http://speedtest1.sc.chinamobile.com:8080/speedtest/upload.php
+speedtest-cli,河南郑州 移动5G   ,-o http://speedtest.eastcom.site:8080/speedtest/upload.php
+speedtest-cli,浙江杭州 移动5G   ,-o http://speedtest.139play.com:8080/speedtest/upload.php
+speedtest-cli,陕西西安 移动5G   ,-o http://speedtest.one-punch.win:8080/speedtest/upload.php

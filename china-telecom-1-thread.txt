@@ -1,0 +1,13 @@
+大陆电信 单线程测速，v2023-09-04
+“宿迁 电信”为自建节点，带宽在800Mbps左右
+speedtest-go,天津 电信         ,--custom-url http://tjrate.tjtele.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,四川成都 电信     ,--custom-url http://speedtest1.sc.189.cn:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,甘肃兰州 电信     ,--custom-url http://speed.bajianjun.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,天津 电信5G       ,--custom-url http://sy.tjtele.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,安徽合肥 电信5G   ,--custom-url http://speedtest1.ah163.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,江苏镇江 电信5G   ,--custom-url http://5gzhenjiang.speedtest.jsinfo.net:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,江苏苏州 电信5G   ,--custom-url http://4gsuzhou1.speedtest.jsinfo.net:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,浙江宁波 电信5G   ,--custom-url http://cesu-nb.zjtelecom.com.cn:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,江苏南京 电信5G   ,--custom-url http://5gnanjing.speedtest.jsinfo.net:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,江苏连云港 电信5G ,--custom-url http://4glianyungang1.speedtest.jsinfo.net:8080/speedtest/upload.php --force-http-ping -t 1
+iperf3      ,宿迁 电信         ,-c 103.239.244.210 -p 22222 -P 1

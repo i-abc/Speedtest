@@ -1,0 +1,7 @@
+大陆移动 多线程测速，v2023-09-04
+尽可能多的线程
+speedtest-cli,北京 移动         ,-o speedtest.bmcc.com.cn
+speedtest-cli,四川成都 移动     ,-o speedtest1.sc.chinamobile.com
+speedtest-cli,河南郑州 移动5G   ,-o speedtest.eastcom.site
+speedtest-cli,浙江杭州 移动5G   ,-o speedtest.139play.com
+speedtest-cli,陕西西安 移动5G   ,-o speedtest.one-punch.win

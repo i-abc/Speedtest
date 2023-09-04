@@ -1,0 +1,6 @@
+大陆移动 单线程测速，v2023-09-04
+speedtest-go,北京 移动         ,--custom-url http://speedtest.bmcc.com.cn:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,四川成都 移动     ,--custom-url http://speedtest1.sc.chinamobile.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,河南郑州 移动5G   ,--custom-url http://speedtest.eastcom.site:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,浙江杭州 移动5G   ,--custom-url http://speedtest.139play.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,陕西西安 移动5G   ,--custom-url http://speedtest.one-punch.win:8080/speedtest/upload.php --force-http-ping -t 1
