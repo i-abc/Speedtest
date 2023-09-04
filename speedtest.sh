@@ -544,6 +544,7 @@ _filter_option_speedtest_cli() {
         column_all_count="$( echo "$line_input" | awk '{ print NF }' )"
         for (( column_count=1; column_count <= column_all_count; column_count++ )); do
             _filter_option_1_para -s --server-id
+            _filter_option_1_para -o --host
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
@@ -563,6 +564,7 @@ _filter_option_speedtest_go() {
         column_all_count="$( echo "$line_input" | awk '{ print NF }' )"
         for (( column_count=1; column_count <= column_all_count; column_count++ )); do
             _filter_option_1_para -s --server
+            _filter_option_1_para --custom-url --custom-url
             _filter_option_1_para -t --thread
             _filter_option_0_para -m --multi
             _filter_option_0_para --no-download --no-download
