@@ -7,7 +7,9 @@ _constant() {
     script_version="v2023-09-03"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
-    node_set="https://ghproxy.com/https://raw.githubusercontent.com/i-abc/Speedtest/node/all-node.txt"
+    node_set=""
+    node_set_1="https://github.com/i-abc/Speedtest/raw/node/all-node.txt"
+    node_set_2="https://jihulab.com/i-abc/speedtest/-/raw/node/all-node-mirror.txt"
 
     # url_1为官方源，url_2为镜像源，皆会进行SHA-256检测
 
@@ -116,16 +118,19 @@ _check_region() {
     country=$( curl -4 "https://ipinfo.io/country" 2> /dev/null )
     if [ -z "$country" ] || echo "$country" | grep "{"; then
         echo "使用镜像源"
+        node_set="$node_set_2"
         speedtest_cli_tar_url="$speedtest_cli_tar_url_2"
         speedtest_go_tar_url="$speedtest_go_tar_url_2"
         librespeed_cli_tar_url="$librespeed_cli_tar_url_2"
     elif [ "$country" != "CN" ]; then
         echo "使用默认源"
+        node_set="$node_set_1"
         speedtest_cli_tar_url="$speedtest_cli_tar_url_1"
         speedtest_go_tar_url="$speedtest_go_tar_url_1"
         librespeed_cli_tar_url="$librespeed_cli_tar_url_1"
     else
         echo "使用镜像源"
+        node_set="$node_set_2"
         speedtest_cli_tar_url="$speedtest_cli_tar_url_2"
         speedtest_go_tar_url="$speedtest_go_tar_url_2"
         librespeed_cli_tar_url="$librespeed_cli_tar_url_2"
@@ -224,31 +229,31 @@ _get_node_list() {
     local node_url node_selection_1 node_selection_2 node_selection_3 first_line second_line
     _print_banner_1; echo -e "${blue}↓    ↓    ↓    ↓    ↓    ↓   测速节点列表   ↓    ↓    ↓    ↓    ↓    ↓${endc}"
     echo -e "0. \033[1m自定义测速节点\033[0m"
-    curl -s "$node_set" | awk '$0!~/http/{print}'
+    curl -sL "$node_set" | awk '$0!~/http/{print}'
     printf "${yellow}%-s${endc}" "请输入您想选择的节点序号: "
     read -r node_selection_1
     # 某类节点
     if [ "$node_selection_1" -ne 0 ]; then
-        node_url=$(curl -s "$node_set" | awk -F. "\$1== $node_selection_1 { getline; print }")
-        wget -q -O "$work_dir"/all-node.txt "$node_url"
+        node_url=$(curl -sL "$node_set" | awk -F. "\$1== $node_selection_1 { getline; print }")
+        curl -o "$work_dir"/all-node.txt -L "$node_url"
     elif [ "$node_selection_1" -eq 0 ]; then
         printf "${yellow}%-s${endc}" "请输入您的自定义节点链接(http或本地绝对路径): "
         read -r node_url_custom
         # 判断自定义节点是网络链接还是本地文件
         # 网络，http
         if [[ "$node_url_custom" =~ \w{0}https?:// ]]; then
-            first_line="$( curl -s "$node_url_custom" | awk -F'.' NR==1'{ print $1 }' )"
-            second_line="$( curl -s "$node_url_custom" | awk NR==2 )"
+            first_line="$( curl -sL "$node_url_custom" | awk -F'.' NR==1'{ print $1 }' )"
+            second_line="$( curl -sL "$node_url_custom" | awk NR==2 )"
             if [ "$first_line" -eq 1 ] &> /dev/null && echo "$second_line" | grep -q -E "\w{0}https?://" &> /dev/null; then
                 node_set="$node_url_custom"
-                curl -s "$node_set" | awk '$0!~/http/{print}'
+                curl -sL "$node_set" | awk '$0!~/http/{print}'
                 printf "${yellow}%-s${endc}" "请输入您想选择的节点序号: "
                 read -r node_selection_2
-                node_url=$(curl -s "$node_set" | awk -F. "\$1== $node_selection_2 { getline; print }")
-                wget -q -O "$work_dir"/all-node.txt "$node_url"
+                node_url=$(curl -sL "$node_set" | awk -F. "\$1== $node_selection_2 { getline; print }")
+                curl -o "$work_dir"/all-node.txt -L "$node_url"
             else
                 node_url="$node_url_custom"
-                wget -q -O "$work_dir"/all-node.txt "$node_url"
+                curl -o "$work_dir"/all-node.txt -L "$node_url"
             fi
         # 本地，绝对路径
         elif [[ "$node_url_custom" =~ \w{0}/{1} ]]; then
@@ -669,7 +674,6 @@ _main() {
     _check_region
     _check_package tar tar
     _check_package curl curl
-    _check_package wget wget
     _check_package iperf3 iperf3
     _make_dir
     _download_tar
