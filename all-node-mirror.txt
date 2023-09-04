@@ -1,15 +1,15 @@
-1. 大陆电信多线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-telecom-m-thread.txt
-2. 大陆电信单线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-telecom-1-thread.txt
-3. 大陆移动多线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-mobile-m-thread.txt
-4. 大陆移动单线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-mobile-1-thread.txt
-5. 大陆联通多线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-m-thread.txt
-6. 大陆联通单线程
-https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-1-thread.txt
+1. 大陆电信多线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-telecom-m-thread-v4.txt
+2. 大陆电信单线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-telecom-1-thread-v4.txt
+3. 大陆移动多线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-mobile-m-thread-v4.txt
+4. 大陆移动单线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-mobile-1-thread-v4.txt
+5. 大陆联通多线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-m-thread-v4.txt
+6. 大陆联通单线程 IPv4
+https://jihulab.com/i-abc/Speedtest/-/raw/node/china-unicom-1-thread-v4.txt
 7. 大陆教育网 IPv4
 https://jihulab.com/i-abc/Speedtest/-/raw/node/china-education-v4.txt
 8. 大陆教育网 IPv6
