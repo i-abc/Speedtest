@@ -354,7 +354,7 @@ _speedtest_cli_test() {
             _check_num "$upload" || upload_c="17"
             _check_num "$upload" && upload="$( echo "scale=2; $upload / 125000" | bc ) Mbps"
             # 输出结果
-            _check_output
+            [ -s "$work_dir"/speedtest-cli-"$count".json ] && _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/speedtest-cli-option-filter.txt
@@ -419,7 +419,7 @@ _speedtest_go_test() {
             _check_option "--no-download" "$option_para" && download="  跳过"
             _check_option "--no-download" "$option_para" && download_c="17"
             # 输出结果
-            _check_output
+            [ -s "$work_dir"/speedtest-go-"$count".json ] && _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/speedtest-go-para-filter.txt
@@ -473,7 +473,7 @@ _librespeed_cli_test() {
             _check_option "--no-download" "$option_para" && download="  跳过"
             _check_option "--no-download" "$option_para" && download_c="17"
             # 输出结果
-            _check_output
+            [ -s "$work_dir"/librespeed-cli-"$count".json ] && _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/librespeed-cli-para-filter.txt
@@ -502,25 +502,61 @@ _iperf3_test() {
             # 延迟，ms
             latency=" 跳过"
             latency_c="15"
+            # 抖动，ms
+            jitter=" 跳过"
+            jitter_c="15"
             # 上传
-            iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            local i_busy
+            for (( i_busy=1; i_busy<=65; i_busy++ )); do
+                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
+                    sleep 0.5
+                fi
+                if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                    break
+                fi
+            done
             # 上传速度，Mbps
-            upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
-            _check_num "$upload" || upload="  失败"
-            _check_num "$upload" || upload_c="17"
-            _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
+            if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                _check_num "$upload" || upload="  失败"
+                _check_num "$upload" || upload_c="17"
+                _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
+            else
+                upload="  跳过" && upload_c="17"
+            fi
             # 下载
-            iperf3 -R -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            for (( i_busy=1; i_busy<=65; i_busy++ )); do
+                iperf3 -R -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
+                    sleep 0.5
+                fi
+                if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                    break
+                fi
+            done
             # 下载速度，Mbps
-            download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
-            _check_num "$download" || download="  失败"
-            _check_num "$download" || download_c="17"
-            _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
+            if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                _check_num "$download" || download="  失败"
+                _check_num "$download" || download_c="17"
+                _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
+            else
+                upload="  跳过" && upload_c="17"
+            fi
             # 输出结果
-            _check_output
+            [ -s "$work_dir"/iperf3-"$count".json ] && _check_output
         else
         # 单向
-            iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            for (( i_busy=1; i_busy<=65; i_busy++ )); do
+                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
+                    sleep 0.5
+                fi
+                if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                    break
+                fi
+            done
             # iperf3输出
             if [ -s "$work_dir"/iperf3-"$count".json ]; then
                 # 节点名称
@@ -545,7 +581,7 @@ _iperf3_test() {
                 _check_option "-R" "$option_para" || download="  跳过"
                 _check_option "-R" "$option_para" || download_c="17"
                 # 输出结果
-                _check_output
+                [ -s "$work_dir"/iperf3-"$count".json ] && _check_output
             fi
         fi
         count=$(( count + 1 ))
@@ -660,6 +696,7 @@ _filter_option_iperf3() {
             _filter_option_1_para -P --parallel
             _filter_option_1_para -i --interval
             _filter_option_1_para -t --time
+            _filter_option_1_para -O --omit
             _filter_option_0_para -R --reverse
             _filter_option_0_para -u --udp
             _filter_option_0_para -4 --version4
