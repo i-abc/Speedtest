@@ -1,12 +1,11 @@
 大陆联通 IPv4 多线程测速，v2023-09-04
-其中“宿迁 联通”为八、十六线程，其余节点为尽可能多的线程
-“宿迁 联通”为自建节点，带宽在800Mbps左右
-speedtest-cli,江苏无锡 联通     ,-o speedtest2.niutk.com
-speedtest-cli,四川成都 联通     ,-o speedtest.cnscn96655.com
-speedtest-cli,福建福州 联通     ,-o upload1.testspeed.cdn16.com
-speedtest-cli,辽宁沈阳 联通     ,-o unicomspeedtest.com
-speedtest-cli,海南三亚 联通     ,-o hin-sanya1.netcute.com
-speedtest-cli,湖南长沙 联通5G   ,-o speedtest01.hn165.com
-speedtest-cli,河南郑州 联通5G   ,-o 5gtest.shangdu.com
-iperf3       ,宿迁 联通         ,-c 103.239.244.210 -p 22222 -P 8
-iperf3       ,宿迁 联通         ,-c 103.239.244.210 -p 22222 -P 16
+其中“联通 宿迁”为八线程，其余节点为尽可能多的线程
+“联通 宿迁”为自建节点，带宽在800Mbps左右
+speedtest-cli ,联通 江苏无锡     ,-o speedtest2.niutk.com
+speedtest-cli ,联通 四川成都     ,-o speedtest.cnscn96655.com
+speedtest-cli ,联通 福建福州     ,-o upload1.testspeed.cdn16.com
+speedtest-cli ,联通 辽宁沈阳     ,-o unicomspeedtest.com
+speedtest-cli ,联通 海南三亚     ,-o hin-sanya1.netcute.com
+speedtest-cli ,联通 湖南长沙 5G  ,-o speedtest01.hn165.com
+speedtest-cli ,联通 河南郑州 5G  ,-o 5gtest.shangdu.com
+iperf3        ,联通 宿迁         ,-c 103.239.244.210 -p 22222 -P 8

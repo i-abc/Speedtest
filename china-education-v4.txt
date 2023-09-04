@@ -1,4 +1,4 @@
 大陆教育网 IPv4 测速，v2023-09-04
-librespeed-cli,北京 教育网       ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
-librespeed-cli,江苏南京 教育网   ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
-librespeed-cli,安徽合肥 教育网   ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp
+librespeed-cli,教育网 北京       ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
+librespeed-cli,教育网 江苏南京   ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
+librespeed-cli,教育网 安徽合肥   ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp

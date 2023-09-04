@@ -1,15 +1,14 @@
 大陆电信 IPv4 多线程测速，v2023-09-04
-其中“宿迁 电信”为八、十六线程，其余节点为尽可能多的线程
-“宿迁 电信”为自建节点，带宽在800Mbps左右
-speedtest-cli,天津 电信         ,-o tjrate.tjtele.com
-speedtest-cli,四川成都 电信     ,-o speedtest1.sc.189.cn
-speedtest-cli,甘肃兰州 电信     ,-o speed.bajianjun.com
-speedtest-cli,天津 电信5G       ,-o sy.tjtele.com
-speedtest-cli,安徽合肥 电信5G   ,-o speedtest1.ah163.com
-speedtest-cli,江苏镇江 电信5G   ,-o 5gzhenjiang.speedtest.jsinfo.net
-speedtest-cli,江苏苏州 电信5G   ,-o 4gsuzhou1.speedtest.jsinfo.net
-speedtest-cli,浙江宁波 电信5G   ,-o cesu-nb.zjtelecom.com.cn
-speedtest-cli,江苏南京 电信5G   ,-o 5gnanjing.speedtest.jsinfo.net
-speedtest-cli,江苏连云港 电信5G ,-o 4glianyungang1.speedtest.jsinfo.net
-iperf3       ,宿迁 电信         ,-c 103.239.244.210 -p 22222 -P 8
-iperf3       ,宿迁 电信         ,-c 103.239.244.210 -p 22222 -P 16
+其中“电信 宿迁”为八线程，其余节点为尽可能多的线程
+“电信 宿迁”为自建节点，带宽在800Mbps左右
+speedtest-cli,电信 天津         ,-o tjrate.tjtele.com
+speedtest-cli,电信 四川成都     ,-o speedtest1.sc.189.cn
+speedtest-cli,电信 甘肃兰州     ,-o speed.bajianjun.com
+speedtest-cli,电信 天津 5G      ,-o sy.tjtele.com
+speedtest-cli,电信 安徽合肥 5G  ,-o speedtest1.ah163.com
+speedtest-cli,电信 江苏镇江 5G  ,-o 5gzhenjiang.speedtest.jsinfo.net
+speedtest-cli,电信 江苏苏州 5G  ,-o 4gsuzhou1.speedtest.jsinfo.net
+speedtest-cli,电信 浙江宁波 5G  ,-o cesu-nb.zjtelecom.com.cn
+speedtest-cli,电信 江苏南京 5G  ,-o 5gnanjing.speedtest.jsinfo.net
+speedtest-cli,电信 江苏连云港 5G,-o 4glianyungang1.speedtest.jsinfo.net
+iperf3       ,电信 宿迁         ,-c 103.239.244.210 -p 22222 -P 8
