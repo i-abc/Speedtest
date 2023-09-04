@@ -82,6 +82,7 @@ _print_banner_4() {
     printf "%-70s\n" "-" | sed 's)\s)-)g'
     echo "当前时间：$(date +"%Y-%m-%d %H:%M:%S %Z")"
     echo "北京时间: $(TZ=Asia/Shanghai date --rfc-3339=seconds)"
+    printf "%-70s\n" "-" | sed 's)\s)-)g'
     echo
 }
 
@@ -353,7 +354,7 @@ _speedtest_cli_test() {
             _check_num "$upload" || upload_c="17"
             _check_num "$upload" && upload="$( echo "scale=2; $upload / 125000" | bc ) Mbps"
             # 输出结果
-            printf "${yellow}%-s${green}%-${download_c}s${cyan}%-${upload_c}s${blue}%-${latency_c}s${purple}%-${jitter_c}s${endc}\n" "$node_name" "${download}" "${upload}" "${latency}" "${jitter}"
+            _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/speedtest-cli-option-filter.txt
@@ -418,7 +419,7 @@ _speedtest_go_test() {
             _check_option "--no-download" "$option_para" && download="  跳过"
             _check_option "--no-download" "$option_para" && download_c="17"
             # 输出结果
-            printf "${yellow}%-s${green}%-${download_c}s${cyan}%-${upload_c}s${blue}%-${latency_c}s${purple}%-${jitter_c}s${endc}\n" "$node_name" "${download}" "${upload}" "${latency}" "${jitter}"
+            _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/speedtest-go-para-filter.txt
@@ -472,7 +473,7 @@ _librespeed_cli_test() {
             _check_option "--no-download" "$option_para" && download="  跳过"
             _check_option "--no-download" "$option_para" && download_c="17"
             # 输出结果
-            printf "${yellow}%-s${green}%-${download_c}s${cyan}%-${upload_c}s${blue}%-${latency_c}s${purple}%-${jitter_c}s${endc}\n" "$node_name" "${download}" "${upload}" "${latency}" "${jitter}"
+            _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/librespeed-cli-para-filter.txt
@@ -518,7 +519,7 @@ _iperf3_test() {
             _check_option "-R" "$option_para" || download="  跳过"
             _check_option "-R" "$option_para" || download_c="17"
             # 输出结果
-            printf "${yellow}%-s${green}%-${download_c}s${cyan}%-${upload_c}s${blue}%-${latency_c}s${purple}%-${jitter_c}s${endc}\n" "$node_name" "${download}" "${upload}" "${latency}" "${jitter}"
+            _check_output
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/iperf3-para.txt
@@ -662,6 +663,22 @@ _check_num() {
     else
         return 1
     fi
+}
+
+
+########## 输出 ##########
+
+_check_output(){
+    local count_check_output=0
+    local i_check_output
+    for i_check_output in $( echo "$download $upload $latency $jitter" ); do
+        if [[ "$i_check_output" =~ 失败 ]]; then
+            count_check_output=$(( count_check_output + 1 ))
+        elif [[ "$i_check_output" =~ 跳过 ]]; then
+            count_check_output=$(( count_check_output + 1 ))
+        fi
+    done
+    [ "$count_check_output" -ne 4 ] && printf "${yellow}%-s${green}%-${download_c}s${cyan}%-${upload_c}s${blue}%-${latency_c}s${purple}%-${jitter_c}s${endc}\n" "$node_name" "$download" "$upload" "$latency" "$jitter"
 }
 
 
