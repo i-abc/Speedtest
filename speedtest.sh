@@ -494,32 +494,59 @@ _iperf3_test() {
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # iperf3测试
         local node_name latency jitter download upload
-        iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
-        # iperf3输出
-        if [ -s "$work_dir"/iperf3-"$count".json ]; then
+        if _check_option "--up-and-down" "$option_para"; then
+        # 双向
+            option_para="$( echo "$option_para" | awk -F'--up-and-down' '{ print $1 $2 }' )"
             # 节点名称
             node_name=$( awk -F, NR=="$count"'{ print $2 }' "$work_dir"/iperf3-node.txt )
             # 延迟，ms
             latency=" 跳过"
             latency_c="15"
-            # 抖动，ms
-            jitter=" 跳过"
-            jitter_c="15"
-            # 下载、上传速度，Mbps
+            # 上传
+            iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            # 上传速度，Mbps
             upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
             _check_num "$upload" || upload="  失败"
             _check_num "$upload" || upload_c="17"
             _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
+            # 下载
+            iperf3 -R -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            # 下载速度，Mbps
             download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
             _check_num "$download" || download="  失败"
             _check_num "$download" || download_c="17"
             _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
-            _check_option "-R" "$option_para" && upload="  跳过"
-            _check_option "-R" "$option_para" && upload_c="17"
-            _check_option "-R" "$option_para" || download="  跳过"
-            _check_option "-R" "$option_para" || download_c="17"
             # 输出结果
             _check_output
+        else
+        # 单向
+            iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+            # iperf3输出
+            if [ -s "$work_dir"/iperf3-"$count".json ]; then
+                # 节点名称
+                node_name=$( awk -F, NR=="$count"'{ print $2 }' "$work_dir"/iperf3-node.txt )
+                # 延迟，ms
+                latency=" 跳过"
+                latency_c="15"
+                # 抖动，ms
+                jitter=" 跳过"
+                jitter_c="15"
+                # 下载、上传速度，Mbps
+                upload="$( awk '{ rows[NR] = $0 } END{ print rows[NR-3] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                _check_num "$upload" || upload="  失败"
+                _check_num "$upload" || upload_c="17"
+                _check_num "$upload" && upload="$( printf "%.2f" "$upload" ) Mbps"
+                download="$(awk '{ rows[NR] = $0 } END{ print rows[NR-2] }' "$work_dir"/iperf3-"$count".json | awk -F'MBytes ' '{ print $2 }' | awk '{ print $1 }' )"
+                _check_num "$download" || download="  失败"
+                _check_num "$download" || download_c="17"
+                _check_num "$download" && download="$( printf "%.2f" "$download" ) Mbps"
+                _check_option "-R" "$option_para" && upload="  跳过"
+                _check_option "-R" "$option_para" && upload_c="17"
+                _check_option "-R" "$option_para" || download="  跳过"
+                _check_option "-R" "$option_para" || download_c="17"
+                # 输出结果
+                _check_output
+            fi
         fi
         count=$(( count + 1 ))
     done < "$work_dir"/iperf3-para.txt
