@@ -23,4 +23,4 @@ speedtest-cli ,联通 河南郑州 5G    ,-o 5gtest.shangdu.com
 librespeed-cli,教育网 北京         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
 librespeed-cli,教育网 江苏南京     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
 librespeed-cli,教育网 安徽合肥     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp
-iperf3        ,联通/电信 宿迁      ,-c 103.239.244.210 -p 22222 -P 8
+iperf3        ,联通/电信 宿迁      ,-c 103.239.244.210 -p 22222 -O 3 -P 8

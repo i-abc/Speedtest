@@ -11,4 +11,4 @@ speedtest-cli,电信 江苏苏州 5G    ,-o 4gsuzhou1.speedtest.jsinfo.net
 speedtest-cli,电信 浙江宁波 5G    ,-o cesu-nb.zjtelecom.com.cn
 speedtest-cli,电信 江苏南京 5G    ,-o 5gnanjing.speedtest.jsinfo.net
 speedtest-cli,电信 江苏连云港 5G  ,-o 4glianyungang1.speedtest.jsinfo.net
-iperf3       ,电信 宿迁           ,-c 103.239.244.210 -p 22222 -P 8
+iperf3       ,电信 宿迁           ,-c 103.239.244.210 -p 22222 -O 3 -P 8
