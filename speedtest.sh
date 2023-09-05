@@ -64,17 +64,17 @@ _print_banner_1() {
      echo -e " Version               : ${green}${script_version}${endc}"
      echo -e " Usage                 : ${yellow}bash <(curl -sL bash.icu/speedtest)${endc}"
      echo -e " GitHub                : ${green}https://github.com/i-abc/speedtest${endc}"
+     printf "%-72s\n" "-" | sed 's)\s)-)g'
  }
 
 _print_banner_2() {
     if [ -s "$work_dir"/banner-custom.txt ]; then
-        printf "%-72s\n" "-" | sed 's)\s)-)g'
         cat "$work_dir"/banner-custom.txt
+        printf "%-72s\n" "-" | sed 's)\s)-)g'
     fi
 }
 
 _print_banner_3() {
-    printf "%-72s\n" "-" | sed 's)\s)-)g'
     printf "%-s%-s%-s%-s%-s\n" "测速节点            " "下载/Mbps      " "上传/Mbps      " "延迟/ms      " "抖动/ms"
 }
 
