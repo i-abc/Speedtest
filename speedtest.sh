@@ -347,12 +347,12 @@ _speedtest_cli_test() {
             download="$( awk -F': |,' '/download/{ getline; print $2 }' "$work_dir"/speedtest-cli-"$count".json )"
             _check_num "$download" || download="  失败"
             _check_num "$download" || download_c="17"
-            _check_num "$download" && download="$( echo "scale=2; $download / 125000" | bc ) Mbps"
+            _check_num "$download" && download="$( echo "scale=2; $download / 125000" | bc )" && download="$( printf "%.2f" "$download" ) Mbps"
             # 上传速度，bps->Mbps
             upload="$( awk -F': |,' '/upload/{ getline; print $2 }' "$work_dir"/speedtest-cli-"$count".json )"
             _check_num "$upload" || upload="  失败"
             _check_num "$upload" || upload_c="17"
-            _check_num "$upload" && upload="$( echo "scale=2; $upload / 125000" | bc ) Mbps"
+            _check_num "$upload" && upload="$( echo "scale=2; $upload / 125000" | bc )" && upload="$( printf "%.2f" "$upload" ) Mbps"
             # 输出结果
             [ -s "$work_dir"/speedtest-cli-"$count".json ] && _check_output
         fi
