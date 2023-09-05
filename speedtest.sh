@@ -64,11 +64,11 @@ _print_banner_1() {
      echo -e " Version               : ${green}${script_version}${endc}"
      echo -e " Usage                 : ${yellow}bash <(curl -sL bash.icu/speedtest)${endc}"
      echo -e " GitHub                : ${green}https://github.com/i-abc/speedtest${endc}"
-     printf "%-72s\n" "-" | sed 's)\s)-)g'
  }
 
 _print_banner_2() {
     if [ -s "$work_dir"/banner-custom.txt ]; then
+        printf "%-72s\n" "-" | sed 's)\s)-)g'
         cat "$work_dir"/banner-custom.txt
     fi
 }
@@ -771,7 +771,7 @@ _main() {
     _classify_node
     clear
     _print_banner_1
-    _print_banner_2
+    [ -s "$work_dir"/banner-custom.txt ] && _print_banner_2
     _print_banner_3
     [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
     [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
