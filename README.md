@@ -33,9 +33,12 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 12. 大陆联通 单线程 IPv4
 13. 各大洲 单线程 IPV4
 14. 各大洲 八线程 IPV4
+
 持续更新中……
 
-- 大陆三网+教育网 多线程 IPv4
+### 效果展示
+
+#### 大陆三网+教育网 多线程 IPv4
 
 测试机：Azure 东京
 
@@ -74,7 +77,7 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-- 大陆三网 单线程 IPv4
+#### 大陆三网 单线程 IPv4
 
 测试机：Azure 东京
 
@@ -111,7 +114,7 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-- 各大洲 128线程 IPV4
+#### 各大洲 128线程 IPV4
 
 测试机：DigitalOcean 旧金山
 
@@ -139,7 +142,7 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-- IPV4 UDP 可用测试
+#### IPV4 UDP 可用测试
 
 测试机：Azure 东京
 
@@ -175,7 +178,7 @@ UDP IPv4 单线程测速，v2023-09-04
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/1.png)
 
-- 示例
+#### 示例
 
 ```
 节点表 模板示例，v2023-09-05
@@ -192,11 +195,11 @@ iperf3        ,联通 宿迁 测UDP     ,-c 103.239.244.210 -p 22222 -u
 iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-down
 ```
 
-- 1区：提示语区 (可选)
+#### 1区：提示语区 (可选)
 
 提示语位于节点表开头，可以在这里写上任何话，比如使用说明、备注、自家广告等，当然也可以不写。
 
-- 3区：节点名区
+#### 3区：节点名区
 
 显而易见，这里就是写对应节点的名字。
 
@@ -206,17 +209,17 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/2.png)
 
-- 2区：测试类型区
+#### 2区：测试类型区
 
 我们有四种类型，分别是 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，选一种即可，每种都有不同的特点，具体说明请往下看。
 
 这部分加空格对齐不是必须的，不加对输出无任何影响，当然像我一样的强迫症可以加空格对齐。
 
-- 4区：测试参数区
+#### 4区：测试参数区
 
-我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/ librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
+我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
 
-1. speedtest-cli
+##### speedtest-cli
 
 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)
 
@@ -233,7 +236,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646"/>`，则 id 为 `36646`，域名为 `5gtest.shangdu.com`。
 
-2. speedtest-go
+##### speedtest-go
 
 [speedtest-go](https://github.com/showwin/speedtest-go)
 
@@ -257,15 +260,15 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646"/>`，则 id 为 `36646`，链接为 `http://5gtest.shangdu.com:8080/speedtest/upload.php`。
 
-3. librespeed-cli
+##### librespeed-cli
 
 [librespeed-cli](https://github.com/librespeed/speedtest-cli)
 
 | 参数            | 作用                                            | 示例                                                                                |
 |---------------|-----------------------------------------------|-----------------------------------------------------------------------------------|
-| --server-json | 远程 JSON 的服务端列表                                | --server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json |
-| --local-json  | 本地 JSON 的服务端列表                                | --local-json /root/librespeed.json                                                |
-| --server      | 通过 JSON 中的 ID 指定服务端                           | --server 1                                                                        |
+| --server-json value | 远程 JSON 的服务端列表                                | --server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json |
+| --local-json value | 本地 JSON 的服务端列表                                | --local-json /root/librespeed.json                                                |
+| --server value     | 通过 JSON 中的 ID 指定服务端                           | --server 1                                                                        |
 | -4            | 仅使用 IPv4 (默认 false)                           | -4                                                                                |
 | -6            | 仅使用 IPv6 (默认 false)                           | -6                                                                                |
 | --no-download | 禁用下载测试 (默认 false)                             | --no-download                                                                     |
@@ -277,7 +280,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 现成的、优质的 librespeed 服务端较少，而且需要自己写服务端列表 JSON，JSON 写法参照 [官方](https://github.com/librespeed/speedtest-cli#use-a-custom-backend-server-list)；如果是个人搭建测速、个人使用，推荐 iperf3.
 
-4. iperf3
+##### iperf3
 
 [iperf3](https://github.com/esnet/iperf)
 
@@ -306,7 +309,7 @@ iperf3 默认是客户端发送、服务端接收，也就是测上传；想测�
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/3.png)
 
-- 示例
+#### 示例
 
 ```
 1. 节点示例
