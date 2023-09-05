@@ -762,6 +762,7 @@ _main() {
     _check_package tar tar
     _check_package curl curl
     _check_package iperf3 iperf3
+    _check_package bc bc
     _make_dir
     _download_tar
     _check_tar_sha256
