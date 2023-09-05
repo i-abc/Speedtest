@@ -1,0 +1,6 @@
+1. 节点示例
+https://raw.githubusercontent.com/i-abc/Speedtest/node/node-template-1.txt
+2. 示例1
+https://raw.githubusercontent.com/i-abc/Speedtest/node/china-main-m-thread-v4.txt
+3. 示例2
+https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-8-thread-v4.txt

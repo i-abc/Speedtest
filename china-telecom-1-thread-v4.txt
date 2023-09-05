@@ -1,4 +1,4 @@
-大陆电信 IPv4 单线程测速，v2023-09-04
+大陆电信 IPv4 单线程测速，v2023-09-05
 speedtest-go,电信 天津           ,--custom-url http://tjrate.tjtele.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,电信 四川成都       ,--custom-url http://speedtest1.sc.189.cn:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,电信 甘肃兰州       ,--custom-url http://speed.bajianjun.com:8080/speedtest/upload.php --force-http-ping -t 1

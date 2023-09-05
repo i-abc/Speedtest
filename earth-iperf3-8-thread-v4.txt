@@ -1,4 +1,4 @@
-大洲 IPv4 八线程测速，v2023-09-04
+大洲 IPv4 八线程测速，v2023-09-05
 iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down  -P 8
 iperf3,美国 亚特兰大       ,-c atl.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down  -P 8
 iperf3,美国 查尔斯顿       ,-c speedtest13.suddenlink.net -4 --up-and-down  -P 8
