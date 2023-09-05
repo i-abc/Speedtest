@@ -1,6 +1,4 @@
 大陆三网+教育网 IPv4 多线程测速，v2023-09-04
-其中“联通/电信 宿迁”为八线程，其余节点为尽可能多的线程
-“联通/电信 宿迁”为自建节点，带宽在800Mbps左右
 speedtest-cli ,电信 天津           ,-o tjrate.tjtele.com
 speedtest-cli ,电信 甘肃兰州       ,-o speed.bajianjun.com
 speedtest-cli ,电信 四川成都       ,-o speedtest1.sc.189.cn
@@ -23,4 +21,3 @@ speedtest-cli ,联通 河南郑州 5G    ,-o 5gtest.shangdu.com
 librespeed-cli,教育网 北京         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
 librespeed-cli,教育网 江苏南京     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
 librespeed-cli,教育网 安徽合肥     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp
-iperf3        ,联通/电信 宿迁      ,-c 103.239.244.210 -p 22222 -O 3 -P 8
