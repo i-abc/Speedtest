@@ -1,6 +1,7 @@
 UDP IPv4 单线程测速，v2023-09-05
 机房UDP限速，结果仅代表UDP是否可用，若没输出则代表UDP不可用
-iperf3,联通/电信 宿迁 自建 ,-c 103.239.244.210 -p 22222 -4 --up-and-down  -P 1 -u
-iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down  -P 1 -u
-iperf3,美国 亚特兰大       ,-c atl.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down  -P 1 -u
-iperf3,美国 查尔斯顿       ,-c speedtest13.suddenlink.net -4 --up-and-down  -P 1 -u
+iperf3,海外 自建           ,-c 185.104.13.7 -p 55500-55520 -4 --up-and-down -P 1 -u
+iperf3,联通/电信 宿迁 自建 ,-c 103.239.244.210 -p 22222 -4 --up-and-down -P 1 -u
+iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
+iperf3,美国 亚特兰大       ,-c atl.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
+iperf3,美国 查尔斯顿       ,-c speedtest13.suddenlink.net -4 --up-and-down -P 1 -u
