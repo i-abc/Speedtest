@@ -4,7 +4,7 @@
 
 脚本自带丰富的测试项目任君挑选，使用者还能自定义想要的测试项目。
 
-👉 [效果展示](https://github.com/i-abc/Speedtest/tree/main#效果展示)、[使用方法](https://github.com/i-abc/Speedtest/tree/main#使用方法)、[基本功能](https://github.com/i-abc/Speedtest/tree/main#基本功能)、[进阶功能](https://github.com/i-abc/Speedtest/tree/main#进阶功能)
+目录：👉 [效果展示](https://github.com/i-abc/Speedtest#效果展示)、[使用方法](https://github.com/i-abc/Speedtest#使用方法)、[基本功能](https://github.com/i-abc/Speedtest#基本功能)、[进阶功能](https://github.com/i-abc/Speedtest#进阶功能)
 
 # 效果展示
 
