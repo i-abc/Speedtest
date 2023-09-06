@@ -1,4 +1,5 @@
 大陆三网+教育网 IPv4 多线程测速，v2023-09-05
+speedtest-cli ,最近的测速点        ,
 speedtest-cli ,电信 天津           ,-o tjrate.tjtele.com
 speedtest-cli ,电信 甘肃兰州       ,-o speed.bajianjun.com
 speedtest-cli ,电信 四川成都       ,-o speedtest1.sc.189.cn
