@@ -18,6 +18,7 @@ speedtest-cli ,联通 辽宁沈阳       ,-o unicomspeedtest.com
 speedtest-cli ,联通 海南三亚       ,-o hin-sanya1.netcute.com
 speedtest-cli ,联通 湖南长沙 5G    ,-o speedtest01.hn165.com
 speedtest-cli ,联通 河南郑州 5G    ,-o 5gtest.shangdu.com
-librespeed-cli,教育网 北京         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
+librespeed-cli,教育网 北京         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 7 -4 --no-icmp
+librespeed-cli,教育网 上海         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
 librespeed-cli,教育网 江苏南京     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
 librespeed-cli,教育网 安徽合肥     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp
