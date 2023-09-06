@@ -250,7 +250,7 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 
 ## 节点表 (必需)
 
-节点表分为四个区域，分别是提示语区、测试类型区、节点名区、测试参数区，如下图所示：
+节点表分为四个区域，分别是提示语区、测试类型区、节点名区、测试参数区；后三区组成三列，彼此之间用英文逗号 `,` 分隔，如下图所示：
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/1.png)
 
@@ -295,7 +295,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
 
-#### speedtest-cli
+#### 1️⃣ speedtest-cli
 
 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)：[speedtest.net](https://www.speedtest.net) 官方 CLI，功能单一。
 
@@ -310,7 +310,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，域名为 `5gtest.shangdu.com`。
 
-#### speedtest-go
+#### 2️⃣ speedtest-go
 
 [speedtest-go](https://github.com/showwin/speedtest-go)：针对 [speedtest.net](https://www.speedtest.net) 开发的第三方，功能较多，能实现指定线程、禁用某方向测速，但当服务器与测速节点相距较远时结果不如 [speedtest.net](https://www.speedtest.net) 官方 CLI。
 
@@ -332,7 +332,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，链接为 `http://5gtest.shangdu.com:8080/speedtest/upload.php`。
 
-#### librespeed-cli
+#### 3️⃣ librespeed-cli
 
 [librespeed-cli](https://github.com/librespeed/speedtest-cli)
 
@@ -352,7 +352,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 现成的、优质的 librespeed 服务端较少，而且需要自己写服务端列表 JSON，JSON 写法参照 [官方](https://github.com/librespeed/speedtest-cli#use-a-custom-backend-server-list)；如果是个人搭建测速、个人使用，推荐 iperf3。
 
-#### iperf3
+#### 4️⃣ iperf3
 
 [iperf3](https://github.com/esnet/iperf)
 
