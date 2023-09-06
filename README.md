@@ -1,47 +1,19 @@
 # 多功能测速脚本
 
-兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，脚本自带丰富的测试项目任君挑选，使用者还能自定义想要的测试项目。
+兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)。
 
-## 使用方法
+脚本自带丰富的测试项目任君挑选，使用者还能自定义想要的测试项目。
 
-```bash
-bash <(curl -sL bash.icu/speedtest)
-```
+👉 [效果展示](https://github.com/i-abc/Speedtest/tree/main#效果展示)、[使用方法](https://github.com/i-abc/Speedtest/tree/main#使用方法)、[基本功能](https://github.com/i-abc/Speedtest/tree/main#基本功能)、[进阶功能](https://github.com/i-abc/Speedtest/tree/main#进阶功能)
 
-或
+# 效果展示
 
-```bash
-bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest.sh)
-```
+<details>
 
-## 基本功能
-
-脚本自带丰富的测试项目
-
-0. 自定义测速节点
-1.  大陆三网+教育网 多线程 IPv4
-2.  大陆三网 单线程 IPv4
-3.  大陆教育网 IPv6
-4.  IPV4 UDP 可用测试
-5.  各大洲 128线程 IPV4
-6.  大陆教育网 IPv4
-7.  大陆电信 多线程 IPv4
-8.  大陆电信 单线程 IPv4
-9.  大陆移动 多线程 IPv4
-10. 大陆移动 单线程 IPv4
-11. 大陆联通 多线程 IPv4
-12. 大陆联通 单线程 IPv4
-13. 各大洲 单线程 IPV4
-14. 各大洲 八线程 IPV4
-
-持续更新中……
-
-### 效果展示
-
-#### 大陆三网+教育网 多线程 IPv4
-
-测试机：Azure 东京
-
+<summary>大陆三网+教育网 多线程 IPv4 (点击展开或收起)</summary>
+ 
+✈️ 测试服务器：Azure 东京
+ 
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
  Version               : v2023-09-04
@@ -77,9 +49,13 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-#### 大陆三网 单线程 IPv4
+</details>
 
-测试机：Azure 东京
+<details>
+
+<summary>大陆三网 单线程 IPv4</summary>
+ 
+✈️ 测试服务器：Azure 东京
 
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
@@ -114,9 +90,13 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-#### 各大洲 128线程 IPV4
+</details>
 
-测试机：DigitalOcean 旧金山
+<details>
+
+<summary>各大洲 128线程 IPV4</summary>
+ 
+✈️ 测试服务器：DigitalOcean 旧金山
 
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
@@ -142,9 +122,13 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ------------------------------------------------------------------------
 ```
 
-#### IPV4 UDP 可用测试
+</details>
 
-测试机：Azure 东京
+<details>
+
+<summary>IPV4 UDP 可用测试</summary>
+ 
+✈️ 测试服务器：Azure 东京
 
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
@@ -166,19 +150,57 @@ UDP IPv4 单线程测速，v2023-09-04
 ------------------------------------------------------------------------
 ```
 
-## 高级功能
+</details>
+
+# 使用方法
+
+<a target="_blank" href="https://bash.icu/speedtest"><img src="https://img.shields.io/website?url=https%3A%2F%2Fbash.icu%2Fspeedtest&label=bash.icu%2Fspeedtest&cacheSeconds=300" />
+
+```bash
+bash <(curl -sL bash.icu/speedtest)
+```
+
+或
+
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest.sh)
+```
+
+# 基本功能
+
+脚本自带丰富的测试项目：
+
+0. [自定义测速节点](https://github.com/i-abc/Speedtest/tree/main#进阶功能)
+1.  大陆三网+教育网 多线程 IPv4
+2.  大陆三网 单线程 IPv4
+3.  大陆教育网 IPv6
+4.  IPV4 UDP 可用测试
+5.  各大洲 128线程 IPV4
+6.  大陆教育网 IPv4
+7.  大陆电信 多线程 IPv4
+8.  大陆电信 单线程 IPv4
+9.  大陆移动 多线程 IPv4
+10. 大陆移动 单线程 IPv4
+11. 大陆联通 多线程 IPv4
+12. 大陆联通 单线程 IPv4
+13. 各大洲 单线程 IPV4
+14. 各大洲 八线程 IPV4
+
+持续更新中……
+
+# 进阶功能
 
 自定义自己想要的测试项目，很简单的。
 
-我们会有两张表，节点表 (必需)、节点集合表 (非必需)
+我们会有两张表，节点表 (必需)、节点集合表 (非必需)。
 
-### 节点表 (必需)
+## 节点表 (必需)
 
 节点表分为四个区域，分别是提示语区、测试类型区、节点名区、测试参数区，如下图所示：
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/1.png)
 
-#### 示例
+### 示例
 
 ```
 节点表 模板示例，v2023-09-05
@@ -195,11 +217,11 @@ iperf3        ,联通 宿迁 测UDP     ,-c 103.239.244.210 -p 22222 -u
 iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-down
 ```
 
-#### 1区：提示语区 (可选)
+### 1区：提示语区 (可选)
 
 提示语位于节点表开头，可以在这里写上任何话，比如使用说明、备注、自家广告等，当然也可以不写。
 
-#### 3区：节点名区
+### 3区：节点名区
 
 显而易见，这里就是写对应节点的名字。
 
@@ -209,38 +231,34 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/2.png)
 
-#### 2区：测试类型区
+### 2区：测试类型区
 
 我们有四种类型，分别是 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，选一种即可，每种都有不同的特点，具体说明请往下看。
 
 这部分加空格对齐不是必须的，不加对输出无任何影响，当然像我一样的强迫症可以加空格对齐。
 
-#### 4区：测试参数区
+### 4区：测试参数区
 
 我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
 
-##### speedtest-cli
+#### speedtest-cli
 
-[speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)
-
-[speedtest.net](https://www.speedtest.net) 官方 CLI，功能单一。
+[speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)：[speedtest.net](https://www.speedtest.net) 官方 CLI，功能单一。
 
  | 参数 | 作用         | 示例                    |
 |----|------------|-----------------------|
 | -s value | 通过 id 指定节点 | -s 36646              |
 | -o value | 通过域名指定节点   | -o 5gtest.shangdu.com |
 
-`-s` 和 `-o` 二选一，`-o` 后面参数为纯域名，不含 http(s)、端口号。
+`-s` 和 `-o` 二选一，`-o` 后面参数为纯域名，不含 http(s)、端口号；推荐 `-o`。
 
 节点 id、域名可在 [https://www.speedtest.net/api/ios-config.php](https://www.speedtest.net/api/ios-config.php) 查阅。
 
-例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646"/>`，则 id 为 `36646`，域名为 `5gtest.shangdu.com`。
+例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，域名为 `5gtest.shangdu.com`。
 
-##### speedtest-go
+#### speedtest-go
 
-[speedtest-go](https://github.com/showwin/speedtest-go)
-
-针对 [speedtest.net](https://www.speedtest.net) 开发的，功能较多，能实现指定线程、禁用某方向测速，但当服务器与测速节点相距较远时结果不如 [speedtest.net](https://www.speedtest.net) 官方 CLI。
+[speedtest-go](https://github.com/showwin/speedtest-go)：针对 [speedtest.net](https://www.speedtest.net) 开发的第三方，功能较多，能实现指定线程、禁用某方向测速，但当服务器与测速节点相距较远时结果不如 [speedtest.net](https://www.speedtest.net) 官方 CLI。
 
 | 参数                | 作用                         | 示例                                                               |
 |-------------------|----------------------------|------------------------------------------------------------------|
@@ -252,15 +270,15 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 | --no-upload       | 禁用上传测试                     | --no-upload                                                      |
 | --force-http-ping | 使用 HTTP 进行强制 Ping，而不是 ICMP | --force-http-ping                                                |
 
-`-s` 和 `--custom-url` 二选一，`--custom-url` 后面参数为完整链接。
+`-s` 和 `--custom-url` 二选一，`--custom-url` 后面参数为完整链接，含 http(s)、端口、以 /upload.php 结尾；推荐 `--custom-url`。
 
 `--force-http-ping` 推荐加上。
 
 节点 id、链接可在 [https://www.speedtest.net/api/ios-config.php](https://www.speedtest.net/api/ios-config.php) 查阅。
 
-例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646"/>`，则 id 为 `36646`，链接为 `http://5gtest.shangdu.com:8080/speedtest/upload.php`。
+例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，链接为 `http://5gtest.shangdu.com:8080/speedtest/upload.php`。
 
-##### librespeed-cli
+#### librespeed-cli
 
 [librespeed-cli](https://github.com/librespeed/speedtest-cli)
 
@@ -278,9 +296,9 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 `--no-icmp` 推荐加上。
 
-现成的、优质的 librespeed 服务端较少，而且需要自己写服务端列表 JSON，JSON 写法参照 [官方](https://github.com/librespeed/speedtest-cli#use-a-custom-backend-server-list)；如果是个人搭建测速、个人使用，推荐 iperf3.
+现成的、优质的 librespeed 服务端较少，而且需要自己写服务端列表 JSON，JSON 写法参照 [官方](https://github.com/librespeed/speedtest-cli#use-a-custom-backend-server-list)；如果是个人搭建测速、个人使用，推荐 iperf3。
 
-##### iperf3
+#### iperf3
 
 [iperf3](https://github.com/esnet/iperf)
 
@@ -303,13 +321,13 @@ iperf3 默认是客户端发送、服务端接收，也就是测上传；想测�
 
 现成的、优质的 iperf3 服务端很多，可在 [iPerf3 Server List](https://iperf3serverlist.net) 查阅；自建 iperf3 服务端也简单，用包管理器就行了。
 
-### 节点集合表 (非必需)
+## 节点集合表 (非必需)
 
 当你有很多节点表时可以组一个节点表合集，如下图所示，当然这不是必需的。
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/3.png)
 
-#### 示例
+### 示例
 
 ```
 1. 节点示例
@@ -326,7 +344,7 @@ iperf3 默认是客户端发送、服务端接收，也就是测上传；想测�
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/5.png)
 
-### 使用自定义的表
+## 使用自定义的表
 
 我们现在有了节点表、节点集合表，那么该如何使用呢？
 
