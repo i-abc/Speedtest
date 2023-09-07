@@ -814,7 +814,7 @@ _check_option() {
 
 _check_num() {
     local num_input=$1
-    if [[ "$num_input" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+    if [[ "$num_input" =~ ^[0-9]+(\.[0-9]+)?$ ]] && ! [[ "$num_input" =~ ^0+(\.0+)?$ ]]; then
         return 0
     else
         return 1
