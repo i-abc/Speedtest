@@ -7,4 +7,3 @@ speedtest-go,联通 辽宁沈阳       ,--custom-url http://unicomspeedtest.com:
 speedtest-go,联通 海南三亚       ,--custom-url http://hin-sanya1.netcute.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,联通 湖南长沙 5G    ,--custom-url http://speedtest01.hn165.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,联通 河南郑州 5G    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 1
-iperf3      ,联通 宿迁 自建      ,-c 103.239.244.210 -p 22222 -P 1

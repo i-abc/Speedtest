@@ -5,8 +5,8 @@ speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.co
 speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping --no-download
 librespeed-cli,教育 南京           ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp
 librespeed-cli,教育 南京 只测上传  ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp --no-download
-iperf3        ,联通 宿迁 只测上传  ,-c 103.239.244.210 -p 22222
-iperf3        ,联通 宿迁 只测下载  ,-c 103.239.244.210 -p 22222 -R
-iperf3        ,联通 宿迁 八线程    ,-c 103.239.244.210 -p 22222 -P 8
-iperf3        ,联通 宿迁 测UDP     ,-c 103.239.244.210 -p 22222 -u
-iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-down
+iperf3        ,电信 宿迁 只测上传  ,-c 103.239.244.210 -p 22222
+iperf3        ,电信 宿迁 只测下载  ,-c 103.239.244.210 -p 22222 -R
+iperf3        ,电信 宿迁 八线程    ,-c 103.239.244.210 -p 22222 -P 8
+iperf3        ,电信 宿迁 测UDP     ,-c 103.239.244.210 -p 22222 -u
+iperf3        ,电信 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-down
