@@ -1,4 +1,4 @@
-大陆三网 IPv4 单线程测速，v2023-09-05
+大陆三网+教育网 IPv4 单线程测速，v2023-09-07
 bim-core,电信 天津           ,http://tjrate.tjtele.com:8080/download http://tjrate.tjtele.com:8080/upload
 bim-core,电信 甘肃兰州       ,http://speed.bajianjun.com:8080/download http://speed.bajianjun.com:8080/upload
 bim-core,电信 四川成都       ,http://speedtest1.sc.189.cn:8080/download http://speedtest1.sc.189.cn:8080/upload

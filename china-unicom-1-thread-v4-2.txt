@@ -1,4 +1,4 @@
-大陆联通 IPv4 单线程测速，v2023-09-05
+大陆联通 IPv4 单线程测速，v2023-09-07
 bim-core,联通 江苏无锡       ,https://speedtest2.niutk.com:8080/download https://speedtest2.niutk.com:8080/upload
 bim-core,联通 四川成都       ,http://speedtest.cnscn96655.com:8080/download http://speedtest.cnscn96655.com:8080/upload
 bim-core,联通 福建福州       ,http://upload1.testspeed.cdn16.com:8080/download http://upload1.testspeed.cdn16.com:8080/upload

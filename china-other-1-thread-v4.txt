@@ -1,3 +1,3 @@
-大陆其他运营商 IPv4 单线程测速，v2023-09-05
+大陆其他运营商 IPv4 单线程测速，v2023-09-07
 speedtest-go,最近的测速点        ,--force-http-ping -t 1
 speedtest-go,广电 重庆           ,--custom-url http://speedtest1.cqccn.com:8080/speedtest/upload.php --force-http-ping -t 1

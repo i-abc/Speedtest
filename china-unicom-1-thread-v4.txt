@@ -1,9 +1,0 @@
-大陆联通 IPv4 单线程测速，v2023-09-05
-speedtest-go,最近的测速点        ,--force-http-ping -t 1
-speedtest-go,联通 江苏无锡       ,--custom-url https://speedtest2.niutk.com:8080/speedtest/upload.php --force-http-ping -t 1
-speedtest-go,联通 四川成都       ,--custom-url http://speedtest.cnscn96655.com:8080/speedtest/upload.php  --force-http-ping -t 1
-speedtest-go,联通 福建福州       ,--custom-url http://upload1.testspeed.cdn16.com:8080/speedtest/upload.php --force-http-ping -t 1
-speedtest-go,联通 辽宁沈阳       ,--custom-url http://unicomspeedtest.com:8080/speedtest/upload.php --force-http-ping -t 1
-speedtest-go,联通 海南三亚       ,--custom-url http://hin-sanya1.netcute.com:8080/speedtest/upload.php --force-http-ping -t 1
-speedtest-go,联通 湖南长沙 5G    ,--custom-url http://speedtest01.hn165.com:8080/speedtest/upload.php --force-http-ping -t 1
-speedtest-go,联通 河南郑州 5G    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 1
