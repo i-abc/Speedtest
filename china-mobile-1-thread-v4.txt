@@ -1,7 +1,9 @@
 大陆移动 IPv4 单线程测速，v2023-09-05
 speedtest-go,最近的测速点        ,--force-http-ping -t 1
 speedtest-go,移动 北京           ,--custom-url http://speedtest.bmcc.com.cn:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,移动 甘肃兰州       ,--custom-url http://speedtest1.gs.chinamobile.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,移动 四川成都       ,--custom-url http://speedtest1.sc.chinamobile.com:8080/speedtest/upload.php --force-http-ping -t 1
+speedtest-go,移动 广东深圳       ,--custom-url http://speedtest.sz.gd.shunshiidc.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,移动 河南郑州 5G    ,--custom-url http://speedtest.eastcom.site:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,移动 浙江杭州 5G    ,--custom-url http://speedtest.139play.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,移动 陕西西安 5G    ,--custom-url http://speedtest.one-punch.win:8080/speedtest/upload.php --force-http-ping -t 1

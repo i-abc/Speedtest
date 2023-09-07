@@ -5,6 +5,7 @@ speedtest-cli,电信 四川成都       ,-o speedtest1.sc.189.cn
 speedtest-cli,电信 甘肃兰州       ,-o speed.bajianjun.com
 speedtest-cli,电信 天津 5G        ,-o sy.tjtele.com
 speedtest-cli,电信 安徽合肥 5G    ,-o speedtest1.ah163.com
+speedtest-cli,电信 湖南长沙 5G    ,-o hntelecom5g.cn
 speedtest-cli,电信 江苏镇江 5G    ,-o 5gzhenjiang.speedtest.jsinfo.net
 speedtest-cli,电信 江苏苏州 5G    ,-o 4gsuzhou1.speedtest.jsinfo.net
 speedtest-cli,电信 浙江宁波 5G    ,-o cesu-nb.zjtelecom.com.cn
