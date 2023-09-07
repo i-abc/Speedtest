@@ -373,10 +373,6 @@ _speedtest_go_test() {
     while IFS= read -r option_para; do
         IFS="$old_IFS"
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
-        local download_c="15"
-        local upload_c="15"
-        local latency_c="13"
-        local jitter_c="13"
         # speedtest-go测试
         local node_name latency jitter download upload
         "$work_dir"/speedtest-go $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
@@ -438,10 +434,6 @@ _librespeed_cli_test() {
     while IFS= read -r option_para; do
         IFS="$old_IFS"
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
-        local download_c="15"
-        local upload_c="15"
-        local latency_c="13"
-        local jitter_c="13"
         # librespeed-cli测试
         local node_name latency jitter download upload
         "$work_dir"/librespeed-cli --json $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
