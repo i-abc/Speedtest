@@ -1,0 +1,8 @@
+大陆移动 IPv4 单线程测速，v2023-09-07
+bim-core,移动 北京           ,http://speedtest.bmcc.com.cn:8080/download http://speedtest.bmcc.com.cn:8080/upload
+bim-core,移动 甘肃兰州       ,http://speedtest1.gs.chinamobile.com:8080/download http://speedtest1.gs.chinamobile.com:8080/upload
+bim-core,移动 四川成都       ,http://speedtest1.sc.chinamobile.com:8080/download http://speedtest1.sc.chinamobile.com:8080/upload
+bim-core,移动 广东深圳       ,http://speedtest.sz.gd.shunshiidc.com:8080/download http://speedtest.sz.gd.shunshiidc.com:8080/upload
+bim-core,移动 河南郑州 5G    ,http://speedtest.eastcom.site:8080/download http://speedtest.eastcom.site:8080/upload
+bim-core,移动 浙江杭州 5G    ,http://speedtest.139play.com:8080/download http://speedtest.139play.com:8080/upload
+bim-core,移动 陕西西安 5G    ,http://speedtest.one-punch.win:8080/download http://speedtest.one-punch.win:8080/upload
