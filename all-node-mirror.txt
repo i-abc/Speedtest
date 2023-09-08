@@ -16,7 +16,7 @@ https://jihulab.com/i-abc/speedtest/-/raw/node/china-education-v4.txt
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-telecom-m-thread-v4.txt
 9.  大陆电信 IPv4 单线程测速
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-telecom-1-thread-v4-2.txt
-10.  大陆移动 IPv4 多线程测速
+10. 大陆移动 IPv4 多线程测速
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-mobile-m-thread-v4.txt
 11. 大陆移动 IPv4 单线程测速
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-mobile-1-thread-v4-2.txt
