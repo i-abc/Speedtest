@@ -23,6 +23,6 @@ https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-m-thread-v4.txt
 12. 大陆联通 单线程 IPv4
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-1-thread-v4-2.txt
 13. 各大洲 单线程 IPV4
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v4-2.txt
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v4.txt
 14. 各大洲 八线程 IPV4
 https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-8-thread-v4.txt
