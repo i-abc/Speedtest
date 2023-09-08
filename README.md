@@ -143,7 +143,7 @@
 
 <details>
 
-<summary>IPV4 UDP 可用测试</summary>
+<summary>IPV4 UDP 可用性测试</summary>
  
 ✈️ 测试服务器：Azure 东京
 
@@ -171,7 +171,7 @@ UDP IPv4 单线程测速，v2023-09-04
 
 <details>
 
-<summary>大陆教育网 IPv4 测速</summary>
+<summary>大陆教育网 IPv4 多线程测速</summary>
  
 ✈️ 测试服务器：Azure 东京
 
@@ -198,7 +198,7 @@ UDP IPv4 单线程测速，v2023-09-04
 
 <details>
 
-<summary>大陆教育网 IPv6 测速</summary>
+<summary>大陆教育网 IPv6 多线程测速</summary>
  
 ✈️ 测试服务器：Hetzner 德国
 
