@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-07"
+    script_version="v2023-09-08"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -437,8 +437,8 @@ _bim_core_test() {
 
 _speedtest_go_test() {
     # speedtest-go的选项、参数
-    awk -F, '{ print $3 }' "$work_dir"/speedtest-go-node.txt > "$work_dir"/speedtest-go-para.txt
-    _filter_option_speedtest_go "$work_dir"/speedtest-go-para.txt "$work_dir"/speedtest-go-para-filter.txt
+    awk -F, '{ print $3 }' "$work_dir"/speedtest-go-node.txt > "$work_dir"/speedtest-go-option.txt
+    _filter_option_speedtest_go "$work_dir"/speedtest-go-option.txt "$work_dir"/speedtest-go-option-filter.txt
     # speedtest-go测试、输出
     local option_para
     local count=1
@@ -490,7 +490,7 @@ _speedtest_go_test() {
             [ -s "$work_dir"/speedtest-go-"$count".json ] && _check_output
         fi
         count=$(( count + 1 ))
-    done < "$work_dir"/speedtest-go-para-filter.txt
+    done < "$work_dir"/speedtest-go-option-filter.txt
 }
 
 
@@ -498,8 +498,8 @@ _speedtest_go_test() {
 
 _librespeed_cli_test() {
     # librespeed-cli的选项、参数
-    awk -F, '{ print $3 }' "$work_dir"/librespeed-cli-node.txt > "$work_dir"/librespeed-cli-para.txt
-    _filter_option_librespeed_cli "$work_dir"/librespeed-cli-para.txt "$work_dir"/librespeed-cli-para-filter.txt
+    awk -F, '{ print $3 }' "$work_dir"/librespeed-cli-node.txt > "$work_dir"/lbrespeed-cli-option.txt
+    _filter_option_librespeed_cli "$work_dir"/lbrespeed-cli-option.txt "$work_dir"/lbrespeed-cli-option-filter.txt
     # librespeed-cli测试、输出
     local option_para
     local count=1
@@ -540,7 +540,7 @@ _librespeed_cli_test() {
             [ -s "$work_dir"/librespeed-cli-"$count".json ] && _check_output
         fi
         count=$(( count + 1 ))
-    done < "$work_dir"/librespeed-cli-para-filter.txt
+    done < "$work_dir"/lbrespeed-cli-option-filter.txt
 }
 
 
@@ -548,8 +548,8 @@ _librespeed_cli_test() {
 
 _iperf3_test() {
     # iperf3的选项、参数
-    awk -F',' '{ print $3 }' "$work_dir"/iperf3-node.txt > "$work_dir"/iperf3-para.txt
-    _filter_option_iperf3 "$work_dir"/iperf3-para.txt "$work_dir"/iperf3-para-filter.txt
+    awk -F',' '{ print $3 }' "$work_dir"/iperf3-node.txt > "$work_dir"/iperf3-option.txt
+    _filter_option_iperf3 "$work_dir"/iperf3-option.txt "$work_dir"/iperf3-option-filter.txt
     # iperf3测试、输出
     local option_para
     local count=1
@@ -572,7 +572,7 @@ _iperf3_test() {
             # 上传
             local i_busy
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -591,7 +591,7 @@ _iperf3_test() {
             fi
             # 下载
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -R -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m -R $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -613,7 +613,7 @@ _iperf3_test() {
         else
         # 单向
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -649,7 +649,7 @@ _iperf3_test() {
             fi
         fi
         count=$(( count + 1 ))
-    done < "$work_dir"/iperf3-para.txt
+    done < "$work_dir"/iperf3-option-filter.txt
 }
 
 
@@ -671,9 +671,26 @@ _filter_option_1_para() {
 }
 
 # bim-core专用，处理为链接的参数
-_filter_bim_core_1() {
+_filter_option_bim_core_1() {
     if [[ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" =~ http ]]; then
         line_output="$line_output $( echo "$line_input" | awk "{ print $"$column_count" }" )"
+    fi
+}
+
+# iperf3专用，处理-p选项
+_filter_option_iperf3_1() {
+    local port
+    if [ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" == "-p" ] || [ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" == "--port" ]; then
+        column_count=$(( column_count + 1 ))
+        port=$( echo "$line_input" | awk "{ print $"$column_count" }" )
+        if [[ "$port" =~ ^[0-9]+$ ]]; then
+            # 一个端口
+            line_output="$line_output $1 $port"
+        else
+            # 多个端口，随机一个
+            port=$( shuf -n 1 -i $port )
+            line_output="$line_output $1 $port"
+        fi
     fi
 }
 
@@ -712,7 +729,7 @@ _filter_option_bim_core() {
         for (( column_count=1; column_count <= column_all_count; column_count++ )); do
             _filter_option_1_para -6 --ipv6
             _filter_option_1_para -m --multi
-            _filter_bim_core_1
+            _filter_option_bim_core_1
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
@@ -784,7 +801,6 @@ _filter_option_iperf3() {
         column_all_count="$( echo "$line_input" | awk '{ print NF }' )"
         for (( column_count=1; column_count <= column_all_count; column_count++ )); do
             _filter_option_1_para -c -c
-            _filter_option_1_para -p --port
             _filter_option_1_para -P --parallel
             _filter_option_1_para -i --interval
             _filter_option_1_para -t --time
@@ -793,6 +809,8 @@ _filter_option_iperf3() {
             _filter_option_0_para -u --udp
             _filter_option_0_para -4 --version4
             _filter_option_0_para -6 --version6
+            _filter_option_0_para --up-and-down --up-and-down
+            _filter_option_iperf3_1 -p --port
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
