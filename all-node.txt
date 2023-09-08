@@ -1,28 +1,34 @@
-1.  大陆三网+教育网 多线程 IPv4
+1.  大陆三网+教育网 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-main-m-thread-v4.txt
-2.  大陆三网+教育网 单线程 IPv4
+2.  大陆三网+教育网 IPv4 单线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-main-1-thread-v4-2.txt
-3.  大陆教育网 IPv6
+3.  大陆教育网 IPv6 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-education-v6.txt
-4.  IPV4 UDP 可用测试
-https://raw.githubusercontent.com/i-abc/Speedtest/node/udp-ok-v4.txt
-5.  各大洲 128线程 IPV4
+4.  各大洲 IPV4 128线程测速 ~ 挑战极限
 https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-128-thread-v4.txt
-6.  大陆教育网 IPv4
+5.  各大洲 IPV6 128线程测速 ~ 挑战极限
+https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-128-thread-v6.txt
+6.  IPV4 UDP 可用测试测试
+https://raw.githubusercontent.com/i-abc/Speedtest/node/udp-ok-v4.txt
+7.  大陆教育网 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-education-v4.txt
-7.  大陆电信 多线程 IPv4
+8.  大陆电信 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-telecom-m-thread-v4.txt
-8.  大陆电信 单线程 IPv4
+9.  大陆电信 IPv4 单线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-telecom-1-thread-v4-2.txt
-9.  大陆移动 多线程 IPv4
+10.  大陆移动 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-mobile-m-thread-v4.txt
-10. 大陆移动 单线程 IPv4
+11. 大陆移动 IPv4 单线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-mobile-1-thread-v4-2.txt
-11. 大陆联通 多线程 IPv4
+12. 大陆联通 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-unicom-m-thread-v4.txt
-12. 大陆联通 单线程 IPv4
+13. 大陆联通 IPv4 单线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-unicom-1-thread-v4-2.txt
-13. 各大洲 单线程 IPV4
+14. 各大洲 IPV4 八线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-1-thread-v4.txt
-14. 各大洲 八线程 IPV4
+15. 各大洲 IPV4 单线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-8-thread-v4.txt
+16. 各大洲 IPV6 八线程测速
+https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-1-thread-v6.txt
+17. 各大洲 IPV6 单线程测速
+https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-8-thread-v6.txt

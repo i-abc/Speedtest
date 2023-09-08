@@ -1,0 +1,11 @@
+大洲 IPv6 128线程测速，v2023-09-07
+iperf3,北美 美国           ,-c ash.speedtest.clouvider.net -p 5200-5209 -6 --up-and-down -P 128
+iperf3,欧洲 德国           ,-c a110.speedtest.wobcom.de -6 --up-and-down -P 128
+iperf3,欧洲 哥本哈根       ,-c speed.fiberby.dk -p 9201-9240 -6 --up-and-down -P 128
+iperf3,欧洲 阿姆斯特丹     ,-c speedtest.ams1.novogara.net -p 5200-5209 -6 --up-and-down -P 128
+iperf3,欧洲 德国           ,-c speedtest.wtnet.de -p 5200-5209 -6 --up-and-down -P 128
+iperf3,欧洲 瑞士           ,-c speedtest.shinternet.ch -p 5200-5209 -6 --up-and-down -P 128
+iperf3,亚洲 新加坡         ,-c lg-sg-sin.webhorizon.net -p 9200-9209 -6 --up-and-down -P 128
+iperf3,亚洲 乌兹别克斯坦   ,-c speedtest.uztelecom.uz -p 5200-5209 -6 --up-and-down -P 128
+iperf3,大洋洲 澳大利亚     ,-c speedtest.optitel.com.au -6 --up-and-down -P 128
+iperf3,大洋洲 新喀里多尼亚 ,-c speedtest.lagoon.nc -p 5202-5210 -6 --up-and-down -P 128
