@@ -1,11 +1,18 @@
-大洲 IPv4 单线程测速，v2023-09-07
+各大洲 IPv4 单线程测速，v2023-09-08
+iperf3,美国 纽约           ,-c speedgauge2.optonline.net --up-and-down -P 1
 iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1
-iperf3,美国 亚特兰大       ,-c atl.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1
-iperf3,美国 查尔斯顿       ,-c speedtest13.suddenlink.net -4 --up-and-down -P 1
-iperf3,亚洲 新加坡         .-c lg-sg-sin.webhorizon.net -p 9200-9209 -4 --up-and-down -P 1
+iperf3,美国 查尔斯顿       ,-c speedtest15.suddenlink.net -4 --up-and-down -P 1
+iperf3,德国 柏林           ,-c a110.speedtest.wobcom.de -4 --up-and-down -P 1
+iperf3,瑞士 温特图尔       ,-c speedtest.init7.net -4 --up-and-down -P 1
+iperf3,丹麦 哥本哈根       ,-c speed.fiberby.dk -p 9201-9240 -4 --up-and-down -P 1
+iperf3,瑞士 沙夫豪森       ,-c speedtest.shinternet.ch -p 5200-5209 -4 --up-and-down -P 1
+iperf3,德国 诺德斯泰特     ,-c speedtest.wtnet.de -p 5200-5209 -4 --up-and-down -P 1
+iperf3,荷兰 阿姆斯特丹     ,-c speedtest.ams1.novogara.net -p 5200-5209 -4 --up-and-down -P 1
+iperf3,印度 苏里           ,-c speedtest.host-palace.com -p 5202-5208 -4 --up-and-down -P 1
+iperf3,亚洲 新加坡         ,-c lg-sg-sin.webhorizon.net -p 9200-9209 -4 --up-and-down -P 1
 iperf3,亚洲 乌兹别克斯坦   ,-c speedtest.uztelecom.uz -p 5200-5209 -4 --up-and-down -P 1
-iperf3,欧洲 柏林           ,-c a110.speedtest.wobcom.de -4 --up-and-down -P 1
-iperf3,欧洲 哥本哈根       ,-c speed.fiberby.dk -p 9201-9240 -4 --up-and-down -P 1
-iperf3,欧洲 阿姆斯特丹     ,-c speedtest.ams1.novogara.net -p 5200-5209 -4 --up-and-down -P 1
-iperf3,非洲 毛里求斯       ,-c speedtestfl.telecom.mu -p 5201-5209 -4 --up-and-down -P 1
 iperf3,大洋洲 新西兰       ,-c speedtest4.nownz.co.nz -4 --up-and-down -P 1
+iperf3,大洋洲 澳大利亚     ,-c speedtest.optitel.com.au -4 --up-and-down -P 1
+iperf3,大洋洲 新喀里多尼亚 ,-c speedtest.lagoon.nc -p 5202-5210 -4 --up-and-down -P 1
+iperf3,非洲 突尼斯         ,-c 196.179.245.2 -p 9200-9240 -4 --up-and-down -P 1
+iperf3,非洲 毛里求斯       ,-c speedtestfl.telecom.mu -p 5201-5209 -4 --up-and-down -P 1
