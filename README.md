@@ -347,7 +347,7 @@ download_url 和 upload_url 两者都要，且 download_url 在前、upload_url 
 
 节点链接可在 [https://www.speedtest.net/api/ios-config.php](https://www.speedtest.net/api/ios-config.php) 查阅。
 
-例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 DOWNLOAD_URL 为 `http://5gtest.shangdu.com:8080/download`，则 UPLOAD_URL 为 `http://5gtest.shangdu.com:8080/upload`。
+例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 download_url 为 `http://5gtest.shangdu.com:8080/download`，则 upload_url 为 `http://5gtest.shangdu.com:8080/upload`。
 
 #### 3️⃣ speedtest-go
 
