@@ -572,7 +572,7 @@ _iperf3_test() {
             # 上传
             local i_busy
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -591,7 +591,7 @@ _iperf3_test() {
             fi
             # 下载
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -R -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m -R $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -613,7 +613,7 @@ _iperf3_test() {
         else
         # 单向
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -686,12 +686,10 @@ _filter_option_iperf3_1() {
         if [[ "$port" =~ ^[0-9]+$ ]]; then
             # 一个端口
             line_output="$line_output $1 $port"
-            echo "一个端口"
         else
             # 多个端口，随机一个
             port=$( shuf -n 1 -i $port )
             line_output="$line_output $1 $port"
-            echo "随机端口"
         fi
     fi
 }
