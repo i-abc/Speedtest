@@ -649,7 +649,7 @@ _iperf3_test() {
             fi
         fi
         count=$(( count + 1 ))
-    done < "$work_dir"/iperf3-para.txt
+    done < "$work_dir"/iperf3-para-filter.txt
 }
 
 
@@ -674,6 +674,25 @@ _filter_option_1_para() {
 _filter_bim_core_1() {
     if [[ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" =~ http ]]; then
         line_output="$line_output $( echo "$line_input" | awk "{ print $"$column_count" }" )"
+    fi
+}
+
+# iperf3专用，处理-p
+_filter_iperf3_1() {
+    local port
+    if [ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" == "-p" ] || [ "$( echo "$line_input" | awk "{ print $"$column_count" }" )" == "--port" ]; then
+        column_count=$(( column_count + 1 ))
+        port=$( echo "$line_input" | awk "{ print $"$column_count" }" )
+        if [[ "$port" =~ ^[0-9]+$ ]]; then
+            # 一个端口
+            line_output="$line_output $1 $port"
+            echo "一个端口"
+        else
+            # 多个端口，随机一个
+            port=$( shuf -n 1 -i $port )
+            line_output="$line_output $1 $port"
+            echo "随机端口"
+        fi
     fi
 }
 
@@ -784,7 +803,6 @@ _filter_option_iperf3() {
         column_all_count="$( echo "$line_input" | awk '{ print NF }' )"
         for (( column_count=1; column_count <= column_all_count; column_count++ )); do
             _filter_option_1_para -c -c
-            _filter_option_1_para -p --port
             _filter_option_1_para -P --parallel
             _filter_option_1_para -i --interval
             _filter_option_1_para -t --time
@@ -793,6 +811,8 @@ _filter_option_iperf3() {
             _filter_option_0_para -u --udp
             _filter_option_0_para -4 --version4
             _filter_option_0_para -6 --version6
+            _filter_option_0_para --up-and-down --up-and-down
+            _filter_iperf3_1 -p --port
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
