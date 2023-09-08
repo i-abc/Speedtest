@@ -1,6 +1,6 @@
 # 多功能测速脚本
 
-兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)。
+兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[bim-core](https://github.com/veoco/bim-core)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)。
 
 脚本自带丰富的测试项目任君挑选，使用者还能自定义想要的测试项目。
 
@@ -10,42 +10,48 @@
 
 <details>
 
-<summary>大陆三网+教育网 多线程 IPv4 (点击展开或收起)</summary>
+<summary>大陆三网+教育网 IPv4 多线程测速 (点击展开或收起)</summary>
  
 ✈️ 测试服务器：Azure 东京
  
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
- Version               : v2023-09-04
+ Version               : v2023-09-07
  Usage                 : bash <(curl -sL bash.icu/speedtest)
  GitHub                : https://github.com/i-abc/speedtest
 ------------------------------------------------------------------------
-大陆三网+教育网 IPv4 多线程测速，v2023-09-04
+大陆三网+教育网 IPv4 多线程测速，v2023-09-07
 ------------------------------------------------------------------------
 测速节点            下载/Mbps      上传/Mbps      延迟/ms      抖动/ms
-电信 天津           4764.75 Mbps   960.30 Mbps    51.86 ms     0.13 ms
-电信 甘肃兰州       4136.04 Mbps   958.73 Mbps    63.29 ms     0.31 ms
-电信 四川成都       16.05 Mbps     459.07 Mbps    80.58 ms     2.31 ms
-电信 安徽合肥 5G    2291.84 Mbps   957.71 Mbps    37.99 ms     0.08 ms
-电信 浙江宁波 5G    1935.21 Mbps   960.06 Mbps    44.47 ms     1.88 ms
-电信 江苏镇江 5G    6439.96 Mbps   960.21 Mbps    40.92 ms     0.39 ms
-电信 江苏连云港 5G  5790.42 Mbps   365.68 Mbps    37.26 ms     0.17 ms
-移动 北京           2295.33 Mbps   953.58 Mbps    119.86 ms    0.13 ms
-移动 四川成都       1916.11 Mbps   960.06 Mbps    132.76 ms    0.42 ms
-移动 浙江杭州 5G    2427.86 Mbps   719.87 Mbps    85.94 ms     0.30 ms
-移动 陕西西安 5G    3028.91 Mbps   502.53 Mbps    108.21 ms    0.17 ms
-联通 江苏无锡       2247.38 Mbps   779.37 Mbps    38.67 ms     1.44 ms
-联通 四川成都       30.51 Mbps     31.06 Mbps     70.53 ms     0.24 ms
-联通 福建福州       4237.51 Mbps     失败         53.61 ms     0.18 ms
-联通 辽宁沈阳       1761.79 Mbps   280.18 Mbps    71.07 ms     0.92 ms
-联通 海南三亚       4440.05 Mbps   957.89 Mbps    73.55 ms     0.17 ms
-联通 湖南长沙 5G    16.88 Mbps     945.14 Mbps    50.58 ms     0.94 ms
-联通 河南郑州 5G    2211.21 Mbps   960.74 Mbps    74.24 ms     0.10 ms
-教育网 江苏南京     638.73 Mbps    516.97 Mbps    829.45 ms    886.87 ms
-教育网 安徽合肥     0.00 Mbps      510.21 Mbps    106.45 ms    0.81 ms
+最近的测速点        8201.26 Mbps   883.80 Mbps    1.97 ms      0.09 ms      
+电信 天津           3616.50 Mbps   961.05 Mbps    68.72 ms     0.22 ms      
+电信 甘肃兰州       13.85 Mbps     759.77 Mbps    63.59 ms     2.06 ms      
+电信 四川成都       11.87 Mbps     812.11 Mbps    163.53 ms    10.54 ms     
+电信 安徽合肥 5G    3807.94 Mbps   961.02 Mbps    38.43 ms     0.46 ms      
+电信 江苏镇江 5G    4863.40 Mbps   960.81 Mbps    36.36 ms     0.60 ms      
+电信 湖南长沙 5G    2807.66 Mbps   952.72 Mbps    67.41 ms     0.92 ms      
+电信 江苏连云港 5G  4310.71 Mbps   44.88 Mbps     34.83 ms     0.23 ms      
+移动 北京           2632.46 Mbps   955.66 Mbps    122.76 ms    0.17 ms      
+移动 甘肃兰州       6.41 Mbps      932.02 Mbps    136.94 ms    8.23 ms      
+移动 广东深圳       11.13 Mbps     653.17 Mbps    187.76 ms    154.31 ms    
+移动 浙江杭州 5G    2894.64 Mbps   705.73 Mbps    85.02 ms     0.12 ms      
+移动 陕西西安 5G    2685.48 Mbps   957.27 Mbps    133.28 ms    0.30 ms      
+联通 江苏无锡       3876.50 Mbps   960.85 Mbps    36.55 ms     0.19 ms      
+联通 四川成都       25.62 Mbps     355.90 Mbps    62.15 ms     0.30 ms      
+联通 福建福州       5501.38 Mbps     失败         53.53 ms     0.19 ms      
+联通 辽宁沈阳       2323.80 Mbps   581.46 Mbps    66.04 ms     0.80 ms      
+联通 海南三亚       4729.78 Mbps   923.30 Mbps    76.86 ms     0.05 ms      
+联通 湖南长沙 5G    141.74 Mbps    960.81 Mbps    76.18 ms     1.33 ms      
+联通 河南郑州 5G    39.73 Mbps     960.70 Mbps    51.34 ms     0.29 ms      
+广电 重庆           1.88 Mbps      23.92 Mbps     87.10 ms     0.45 ms      
+教育网 江苏苏州     1.07 Mbps      19.53 Mbps     147.53 ms    209.28 ms    
+教育网 北京         220.15 Mbps    366.71 Mbps    85.82 ms     0.02 ms      
+教育网 上海         241.95 Mbps    262.00 Mbps    197.73 ms    0.79 ms      
+教育网 江苏南京     619.21 Mbps    502.79 Mbps    110.64 ms    0.39 ms      
+教育网 安徽合肥       失败         635.71 Mbps    106.36 ms    1.16 ms      
 ------------------------------------------------------------------------
-当前时间：2023-09-05 19:26:29 CST
-北京时间: 2023-09-05 19:26:29+08:00
+当前时间：2023-09-08 09:30:48 CST
+北京时间: 2023-09-08 09:30:48+08:00
 ------------------------------------------------------------------------
 ```
 
@@ -53,40 +59,45 @@
 
 <details>
 
-<summary>大陆三网 单线程 IPv4</summary>
+<summary>大陆三网+教育网 IPv4 单线程测速</summary>
  
 ✈️ 测试服务器：Azure 东京
 
 ```
 ------------------------ 多功能 自更新 测速脚本 ------------------------
- Version               : v2023-09-04
+ Version               : v2023-09-07
  Usage                 : bash <(curl -sL bash.icu/speedtest)
  GitHub                : https://github.com/i-abc/speedtest
 ------------------------------------------------------------------------
-大陆三网 IPv4 单线程测速，v2023-09-04
+大陆三网+教育网 IPv4 单线程测速，v2023-09-07
 ------------------------------------------------------------------------
 测速节点            下载/Mbps      上传/Mbps      延迟/ms      抖动/ms
-电信 天津           193.86 Mbps    8.00 Mbps      95.13 ms     35.74 ms
-电信 甘肃兰州       14.87 Mbps     8.00 Mbps      151.97 ms    153.26 ms
-电信 四川成都       4.39 Mbps      1.65 Mbps      728.97 ms    554.91 ms
-电信 安徽合肥 5G    184.33 Mbps    10.47 Mbps     81.30 ms     29.51 ms
-电信 浙江宁波 5G    220.87 Mbps    13.59 Mbps     316.42 ms    638.03 ms
-电信 江苏镇江 5G    184.33 Mbps    15.32 Mbps     106.56 ms    149.46 ms
-电信 江苏连云港 5G  220.87 Mbps    17.11 Mbps     58.36 ms     12.69 ms
-移动 北京           69.92 Mbps     6.48 Mbps      200.34 ms    93.52 ms
-移动 四川成都       57.20 Mbps     5.73 Mbps      153.29 ms    23.36 ms
-移动 浙江杭州 5G    96.93 Mbps     9.60 Mbps      125.33 ms    32.49 ms
-移动 陕西西安 5G    85.81 Mbps     6.48 Mbps      151.17 ms    47.80 ms
-联通 四川成都       5.00 Mbps      5.60 Mbps      108.50 ms    43.12 ms
-联通 福建福州       137.39 Mbps    11.33 Mbps     100.20 ms    47.38 ms
-联通 辽宁沈阳       8.10 Mbps      6.48 Mbps      247.68 ms    83.61 ms
-联通 海南三亚       116.00 Mbps    8.87 Mbps      117.02 ms    39.37 ms
-联通 湖南长沙 5G    1.66 Mbps      8.07 Mbps      434.11 ms    237.42 ms
-联通 河南郑州 5G    21.08 Mbps     11.19 Mbps     100.63 ms    35.38 ms
-联通/电信 宿迁 自建   跳过         345.00 Mbps     跳过         跳过
+电信 天津           386.20 Mbps    443.30 Mbps    51.80 ms     4.30 ms      
+电信 甘肃兰州       2.40 Mbps      239.10 Mbps    66.40 ms     41.00 ms     
+电信 四川成都       0.30 Mbps      6.90 Mbps      125.70 ms    252.40 ms    
+电信 湖南长沙 5G    304.00 Mbps    307.80 Mbps    58.00 ms     7.20 ms      
+电信 安徽合肥 5G    334.40 Mbps    628.40 Mbps    39.50 ms     0.50 ms      
+电信 浙江宁波 5G    235.60 Mbps    581.30 Mbps    37.70 ms     7.50 ms      
+电信 江苏镇江 5G    632.40 Mbps    662.10 Mbps    36.60 ms     7.50 ms      
+电信 江苏连云港 5G  520.50 Mbps    0.80 Mbps      35.00 ms     1.70 ms      
+移动 北京           609.30 Mbps    244.90 Mbps    120.00 ms    2.80 ms      
+移动 甘肃兰州         失败         443.50 Mbps    123.50 ms    31.20 ms     
+移动 广东深圳       0.50 Mbps      184.90 Mbps    93.20 ms     2.90 ms      
+移动 浙江杭州 5G    243.60 Mbps    183.40 Mbps    83.20 ms     2.00 ms      
+移动 陕西西安 5G    706.60 Mbps    99.40 Mbps     106.00 ms    8.10 ms      
+联通 江苏无锡         失败           失败         35.60 ms     23.20 ms     
+联通 四川成都       8.10 Mbps      5.70 Mbps      62.70 ms     1.90 ms      
+联通 福建福州       347.80 Mbps    284.70 Mbps    56.20 ms     12.50 ms     
+联通 辽宁沈阳       162.50 Mbps    211.50 Mbps    65.70 ms     10.30 ms     
+联通 海南三亚       15.00 Mbps     335.40 Mbps    74.40 ms     17.30 ms     
+联通 湖南长沙 5G    2.30 Mbps      461.10 Mbps    49.00 ms     3.90 ms      
+联通 河南郑州 5G    19.20 Mbps     940.60 Mbps    49.10 ms     8.10 ms      
+广电 重庆           0.60 Mbps      31.50 Mbps     86.10 ms     1.20 ms      
+教育网 江苏苏州     0.30 Mbps      1.00 Mbps      140.50 ms    37.10 ms     
+电信 宿迁 自建        跳过         443.00 Mbps     跳过         跳过        
 ------------------------------------------------------------------------
-当前时间：2023-09-05 19:35:25 CST
-北京时间: 2023-09-05 19:35:25+08:00
+当前时间：2023-09-08 09:15:11 CST
+北京时间: 2023-09-08 09:15:11+08:00
 ------------------------------------------------------------------------
 ```
 
@@ -94,7 +105,7 @@
 
 <details>
 
-<summary>各大洲 128线程 IPV4</summary>
+<summary>各大洲 IPV4 128线程测速</summary>
  
 ✈️ 测试服务器：DigitalOcean 旧金山
 
@@ -154,7 +165,7 @@ UDP IPv4 单线程测速，v2023-09-04
 
 <details>
 
-<summary>大陆教育网 IPv4</summary>
+<summary>大陆教育网 IPv4 测速</summary>
  
 ✈️ 测试服务器：Azure 东京
 
@@ -181,7 +192,7 @@ UDP IPv4 单线程测速，v2023-09-04
 
 <details>
 
-<summary>大陆教育网 IPv6</summary>
+<summary>大陆教育网 IPv6 测速</summary>
  
 ✈️ 测试服务器：DigitalOcean 旧金山
 
@@ -226,7 +237,7 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 
 0. [自定义测速节点](https://github.com/i-abc/Speedtest/tree/main#进阶功能)
 1.  大陆三网+教育网 多线程 IPv4
-2.  大陆三网 单线程 IPv4
+2.  大陆三网+教育网 单线程 IPv4
 3.  大陆教育网 IPv6
 4.  IPV4 UDP 可用测试
 5.  各大洲 128线程 IPV4
@@ -257,8 +268,9 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 ### 示例
 
 ```
-节点表 模板示例，v2023-09-05
+节点表 模板示例，v2023-09-08
 speedtest-cli ,联通 郑州 cli       ,-o 5gtest.shangdu.com
+bim-core      ,联通 郑州 bimc      ,http://5gtest.shangdu.com:8080/download http://5gtest.shangdu.com:8080/upload
 speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping
 speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 8
 speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping --no-download
@@ -287,13 +299,23 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 ### 2区：测试类型区
 
-我们有四种类型，分别是 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，选一种即可，每种都有不同的特点，具体说明请往下看。
+我们有五种类型，分别是 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[bim-core](https://github.com/veoco/bim-core)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，选一种即可，每种都有不同的特点，具体说明请往下看。
 
 这部分加空格对齐不是必须的，不加对输出无任何影响，当然像我一样的强迫症可以加空格对齐。
 
 ### 4区：测试参数区
 
-我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
+我们脚本兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[bim-core](https://github.com/veoco/bim-core)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)，我挑选了部分对测试有用的参数应用到了脚本里，大家可以按需使用。
+
+| **类型**         | **测速点提供商**    | **只单向测速** | **指定IPv6测速** | **单连接测速** | **UDP测试** | **不使用 ICMP Ping** | **指定测试时长** |
+|----------------|---------------|-----------|---------------|-----------|-----------|-------------------|---------------|
+| speedtest-cli  | speedtest.net | ❌         | ❌             | ❌         | ❌         | ❌                 | ❌             |
+| bim-core       | speedtest.net | ❌         | ✔️            | ✔️        | ❌         | ❌                 | ❌             |
+| speedtest-go   | speedtest.net | ✔️        | ❌             | ✔️        | ❌         | ✔️                | ❌             |
+| librespeed-cli | 公共、自建         | ✔️        | ✔️            | ❌         | ❌         | ✔️                | ✔️            |
+| iperf3         | 公共、自建         | ✔️        | ✔️            | ✔️        | ✔️        | ❌                 | ✔️            |
+
+**使用 [speedtest.net](https://www.speedtest.net) 时，多连接测速推荐 speedtest-cli、单连接测速推荐 bim-core。**
 
 #### 1️⃣ speedtest-cli
 
@@ -310,9 +332,26 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，域名为 `5gtest.shangdu.com`。
 
-#### 2️⃣ speedtest-go
+#### 2️⃣ bim-core
 
-[speedtest-go](https://github.com/showwin/speedtest-go)：针对 [speedtest.net](https://www.speedtest.net) 开发的第三方，功能较多，能实现指定线程、禁用某方向测速，但当服务器与测速节点相距较远时结果不如 [speedtest.net](https://www.speedtest.net) 官方 CLI。
+[bim-core](https://github.com/veoco/bim-core)：针对 [speedtest.net](https://www.speedtest.net) 开发的第三方，功能较多，能实现单线程、指定 IPv6 测速。
+
+| 参数                | 作用                         | 示例                                                               |
+|-------------------|----------------------------|------------------------------------------------------------------|
+| download_url        | 节点的下载链接           | http://5gtest.shangdu.com:8080/download                         |
+| upload_url | 节点的上传链接              | http://5gtest.shangdu.com:8080/upload |
+| -m                | 启用八线程测速                   | -m                                                               |
+| -6     | 仅使用 IPv6                     | -6                                                    |
+
+download_url 和 upload_url 两者都要，且 download_url 在前、upload_url 在后，含 http(s)、端口、分别以 `/download`、`/upload` 结尾。
+
+节点链接可在 [https://www.speedtest.net/api/ios-config.php](https://www.speedtest.net/api/ios-config.php) 查阅。
+
+例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 DOWNLOAD_URL 为 `http://5gtest.shangdu.com:8080/download`，则 UPLOAD_URL 为 `http://5gtest.shangdu.com:8080/upload`。
+
+#### 3️⃣ speedtest-go
+
+[speedtest-go](https://github.com/showwin/speedtest-go)：针对 [speedtest.net](https://www.speedtest.net) 开发的第三方，功能较多，能实现指定线程、禁用某方向测速。
 
 | 参数                | 作用                         | 示例                                                               |
 |-------------------|----------------------------|------------------------------------------------------------------|
@@ -324,7 +363,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 | --no-upload       | 禁用上传测试                     | --no-upload                                                      |
 | --force-http-ping | 使用 HTTP 进行强制 Ping，而不是 ICMP | --force-http-ping                                                |
 
-`-s` 和 `--custom-url` 二选一，`--custom-url` 后面参数为完整链接，含 http(s)、端口、以 /upload.php 结尾；推荐 `--custom-url`。
+`-s` 和 `--custom-url` 二选一，`--custom-url` 后面参数为完整链接，含 http(s)、端口、以 `/upload.php` 结尾；推荐 `--custom-url`。
 
 `--force-http-ping` 推荐加上。
 
@@ -332,7 +371,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 例如：`<server url="http://5gtest.shangdu.com:8080/speedtest/upload.php" lat="34.3287" lon="109.0337" name="Zhengzhou" sponsor="China Unicom HeNan 5G" id="36646" />`，则 id 为 `36646`，链接为 `http://5gtest.shangdu.com:8080/speedtest/upload.php`。
 
-#### 3️⃣ librespeed-cli
+#### 4️⃣ librespeed-cli
 
 [librespeed-cli](https://github.com/librespeed/speedtest-cli)
 
@@ -352,7 +391,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 现成的、优质的 librespeed 服务端较少，而且需要自己写服务端列表 JSON，JSON 写法参照 [官方](https://github.com/librespeed/speedtest-cli#use-a-custom-backend-server-list)；如果是个人搭建测速、个人使用，推荐 iperf3。
 
-#### 4️⃣ iperf3
+#### 5️⃣ iperf3
 
 [iperf3](https://github.com/esnet/iperf)
 
@@ -371,7 +410,7 @@ iperf3        ,联通 宿迁 测双向    ,-c 103.239.244.210 -p 22222 --up-and-
 
 当服务端端口为默认的 5201 时，`-p` 可不加；`-p` 除了 `-p 22222` 指定一个端口，还能 `-p 5200-5209` 指定一个范围内的端口。
 
-iperf3 默认是客户端发送、服务端接收，也就是测上传；想测下载可加 `-R` 开启反向模式；但 iperf3 只支持单向，所以脚本里自创了 `--up-and-down` 选项，加上后可测双向；`--up-and-down` 与 `-R` 二选一，且 `--up-and-down` 在本脚本以外的地方不可用，非官方选项。
+iperf3 默认是客户端发送、服务端接收，也就是测上传；想测下载可加 `-R` 开启反向模式；但 iperf3 只支持单向，所以脚本里自创了 `--up-and-down` 选项，加上后可测双向；`--up-and-down` 与 `-R` 二选一，**且 `--up-and-down` 在本脚本以外的地方不可用，非官方选项**。
 
 现成的、优质的 iperf3 服务端很多，可在 [iPerf3 Server List](https://iperf3serverlist.net) 查阅；自建 iperf3 服务端也简单，用包管理器就行了。
 
