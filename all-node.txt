@@ -8,7 +8,7 @@ https://raw.githubusercontent.com/i-abc/Speedtest/node/china-education-v6.txt
 https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-8-thread-v4.txt
 5.  各大洲 IPV6 八线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/earth-iperf3-8-thread-v6.txt
-6.  IPV4 UDP 可用测试测试
+6.  IPV4 UDP 可用性测试
 https://raw.githubusercontent.com/i-abc/Speedtest/node/udp-ok-v4.txt
 7.  大陆教育网 IPv4 多线程测速
 https://raw.githubusercontent.com/i-abc/Speedtest/node/china-education-v4.txt
