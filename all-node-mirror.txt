@@ -4,10 +4,10 @@ https://jihulab.com/i-abc/speedtest/-/raw/node/china-main-m-thread-v4.txt
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-main-1-thread-v4-2.txt
 3.  大陆教育网 IPv6 多线程测速
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-education-v6.txt
-4.  各大洲 IPV4 32线程测速 ~ 挑战极限
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-32-thread-v4.txt
-5.  各大洲 IPV6 32线程测速 ~ 挑战极限
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-32-thread-v6.txt
+4.  各大洲 IPV4 八线程测速
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-8-thread-v4.txt
+5.  各大洲 IPV6 八线程测速
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-8-thread-v6.txt
 6.  IPV4 UDP 可用测试测试
 https://jihulab.com/i-abc/speedtest/-/raw/node/udp-ok-v4.txt
 7.  大陆教育网 IPv4 多线程测速
@@ -24,11 +24,11 @@ https://jihulab.com/i-abc/speedtest/-/raw/node/china-mobile-1-thread-v4-2.txt
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-m-thread-v4.txt
 13. 大陆联通 IPv4 单线程测速
 https://jihulab.com/i-abc/speedtest/-/raw/node/china-unicom-1-thread-v4-2.txt
-14. 各大洲 IPV4 八线程测速
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v4.txt
+14. 各大洲 IPV4 32线程测速
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-32-thread-v4.txt
 15. 各大洲 IPV4 单线程测速
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-8-thread-v4.txt
-16. 各大洲 IPV6 八线程测速
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v6.txt
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v4.txt
+16. 各大洲 IPV6 32线程测速
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-32-thread-v6.txt
 17. 各大洲 IPV6 单线程测速
-https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-8-thread-v6.txt
+https://jihulab.com/i-abc/speedtest/-/raw/node/earth-iperf3-1-thread-v6.txt

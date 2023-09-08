@@ -1,4 +1,4 @@
-各大洲 IPv4 32线程测速，v2023-09-07
+各大洲 IPv4 32线程测速，v2023-09-08
 iperf3,美国 纽约           ,-c speedgauge2.optonline.net --up-and-down -P 32
 iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 32
 iperf3,美国 查尔斯顿       ,-c speedtest15.suddenlink.net -4 --up-and-down -P 32

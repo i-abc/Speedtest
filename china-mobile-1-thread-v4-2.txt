@@ -1,4 +1,4 @@
-大陆移动 IPv4 单线程测速，v2023-09-07
+大陆移动 IPv4 单线程测速，v2023-09-08
 bim-core,移动 北京           ,http://speedtest.bmcc.com.cn:8080/download http://speedtest.bmcc.com.cn:8080/upload
 bim-core,移动 甘肃兰州       ,http://speedtest1.gs.chinamobile.com:8080/download http://speedtest1.gs.chinamobile.com:8080/upload
 bim-core,移动 四川成都       ,http://speedtest1.sc.chinamobile.com:8080/download http://speedtest1.sc.chinamobile.com:8080/upload
