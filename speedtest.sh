@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-08"
+    script_version="v2023-09-09"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -572,7 +572,7 @@ _iperf3_test() {
             # 上传
             local i_busy
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout --foreground 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -591,7 +591,7 @@ _iperf3_test() {
             fi
             # 下载
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                timeout 70 iperf3 -f m -R $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout --foreground 70 iperf3 -f m -R $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
@@ -613,7 +613,7 @@ _iperf3_test() {
         else
         # 单向
             for (( i_busy=1; i_busy<=65; i_busy++ )); do
-                timeout 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
+                timeout --foreground 70 iperf3 -f m $option_para > "$work_dir"/iperf3-"$count".json 2> "$work_dir"/iperf3-"$count"-error.json
                 if grep -q "busy" "$work_dir"/iperf3-"$count"-error.json; then
                     sleep 0.5
                 fi
