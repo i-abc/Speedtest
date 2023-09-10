@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-09"
+    script_version="v2023-09-10"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -859,12 +859,15 @@ _check_output(){
 ########## 删除残余文件 ##########
 
 _rm_dir() {
+    _print_banner_4
     rm -rf "$work_dir"
+    exit
 }
 
 ########## main ##########
 
 _main() {
+    trap '{ echo; _rm_dir; }' SIGINT SIGQUIT SIGTERM
     _check_architecture
     _constant
     _print_banner_1
@@ -889,7 +892,6 @@ _main() {
     [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
     [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
     [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
-    _print_banner_4
     _rm_dir
 }
 
