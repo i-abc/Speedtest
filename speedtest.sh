@@ -382,6 +382,10 @@ _speedtest_cli_test() {
             # 输出结果
             [ -s "$work_dir"/speedtest-cli-"$count".json ] && _check_output
         fi
+        if grep -q "Too many requests received" "$work_dir"/speedtest-cli-"$count"-error.json; then
+            echo "测速次数过多，暂时被限制，请过一段时间后再进行测试"
+            break
+        fi
         count=$(( count + 1 ))
     done < "$work_dir"/speedtest-cli-option-filter.txt
 }
