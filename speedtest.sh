@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-10"
+    script_version="v2023-09-19"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -856,12 +856,33 @@ _check_output(){
 }
 
 
+########## 上传结果 ##########
+_upload_output() {
+    # 替换掉输出结果里的颜色代码
+    sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
+    # 随机取6位作为分享链接名字
+    url_name="speedtest-"
+    word_txt="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for asdfgh in {1..6}; do
+        random_x="$(( RANDOM % 63 ))"
+        [ "$random_x" -eq "0" ] && random_x="1"
+        random_y="$( echo "$word_txt" | cut -c "$random_x" )"
+        url_name="${url_name}${random_y}"
+    done
+    upload_url="$( curl -s -Fc="$( cat "$work_dir"/output.txt )" -Fe="7d" -Fn="$url_name" "https://pastebin.xidian.eu.org" )"
+    share_url="$( echo "$upload_url" | awk -F'"' '/url/{ print $4 }' )"
+    admin_url="$( echo "$upload_url" | awk -F'"' '/admin/{ print $4 }' )"
+    [[ "$share_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n" "分享链接(有效期7天): " "$share_url"
+    [[ "$admin_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n\n" "管理您的分享链接: " "$admin_url"
+}
+
 ########## 删除残余文件 ##########
 
 _rm_dir() {
-    _print_banner_4
+    _print_banner_4 | tee -a "$work_dir"/output.txt
+    _upload_output
     rm -rf "$work_dir"
-    exit
+    exit 0
 }
 
 ########## main ##########
@@ -884,14 +905,14 @@ _main() {
     _get_node_list
     _classify_node
     clear
-    _print_banner_1
-    [ -s "$work_dir"/banner-custom.txt ] && _print_banner_2
-    _print_banner_3
-    [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
-    [ -s "$work_dir"/bim-core-node.txt ] && _bim_core_test
-    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
-    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
-    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
+    _print_banner_1 | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/banner-custom.txt ] && _print_banner_2 | tee -a "$work_dir"/output.txt
+    _print_banner_3 | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/bim-core-node.txt ] && _bim_core_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test | tee -a "$work_dir"/output.txt
     _rm_dir
 }
 
