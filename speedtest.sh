@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-10"
+    script_version="v2023-09-19"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -856,12 +856,21 @@ _check_output(){
 }
 
 
+########## 上传结果 ##########
+_upload_output() {
+    # 替换掉输出结果里的颜色代码
+    sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
+    share_url="$( curl -s -X POST -F "format=url" -F "lexer=_text" -F "expires=never" -F "content=$( cat ""$work_dir"/output.txt" )" "https://dpaste.org/api/" )/raw"
+    [[ "$share_url" =~ ^https://dpaste.org/ ]] && printf "${yellow}%-s${endc}%-s\n\n" "分享链接: " "$share_url"
+}
+
 ########## 删除残余文件 ##########
 
 _rm_dir() {
-    _print_banner_4
+    _print_banner_4 | tee -a "$work_dir"/output.txt
+    _upload_output
     rm -rf "$work_dir"
-    exit
+    exit 0
 }
 
 ########## main ##########
@@ -884,14 +893,14 @@ _main() {
     _get_node_list
     _classify_node
     clear
-    _print_banner_1
-    [ -s "$work_dir"/banner-custom.txt ] && _print_banner_2
-    _print_banner_3
-    [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test
-    [ -s "$work_dir"/bim-core-node.txt ] && _bim_core_test
-    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test
-    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test
-    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test
+    _print_banner_1 | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/banner-custom.txt ] && _print_banner_2 | tee -a "$work_dir"/output.txt
+    _print_banner_3 | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/speedtest-cli-node.txt ] && _speedtest_cli_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/bim-core-node.txt ] && _bim_core_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/speedtest-go-node.txt ] && _speedtest_go_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/librespeed-cli-node.txt ] && _librespeed_cli_test | tee -a "$work_dir"/output.txt
+    [ -s "$work_dir"/iperf3-node.txt ] && _iperf3_test | tee -a "$work_dir"/output.txt
     _rm_dir
 }
 
