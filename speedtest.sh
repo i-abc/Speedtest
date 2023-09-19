@@ -860,8 +860,20 @@ _check_output(){
 _upload_output() {
     # 替换掉输出结果里的颜色代码
     sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
-    share_url="$( curl -s -X POST -F "format=url" -F "lexer=_text" -F "expires=never" -F "content=$( cat ""$work_dir"/output.txt" )" "https://dpaste.org/api/" )/raw"
-    [[ "$share_url" =~ ^https://dpaste.org/ ]] && printf "${yellow}%-s${endc}%-s\n\n" "分享链接: " "$share_url"
+    # 随机取6位作为分享链接名字
+    url_name="speedtest-"
+    word_txt="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for asdfgh in {1..6}; do
+        random_x="$(( RANDOM % 63 ))"
+        [ "$random_x" -eq "0" ] && random_x="1"
+        random_y="$( echo "$word_txt" | cut -c "$random_x" )"
+        url_name="${url_name}${random_y}"
+    done
+    upload_url="$( curl -s -Fc="$( cat "$work_dir"/output.txt )" -Fe="7d" -Fn="$url_name" "https://pastebin.xidian.eu.org" )"
+    share_url="$( echo "$upload_url" | awk -F'"' '/url/{ print $4 }' )"
+    admin_url="$( echo "$upload_url" | awk -F'"' '/admin/{ print $4 }' )"
+    [[ "$share_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n" "分享链接(有效期7天): " "$share_url"
+    [[ "$admin_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n\n" "管理您的分享链接: " "$admin_url"
 }
 
 ########## 删除残余文件 ##########
