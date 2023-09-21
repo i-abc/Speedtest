@@ -133,16 +133,17 @@ _check_architecture() {
 ########## 检测地区，指定下载源 ##########
 
 _check_region() {
-    local country
-    country=$( curl -4 "https://ipinfo.io/country" 2> /dev/null )
-    if [ -z "$country" ] || echo "$country" | grep "{"; then
+    local loc
+    loc=$( curl -s "https://www.visa.cn/cdn-cgi/trace" | awk -F'=' '/loc/{ print $2 }' )
+    echo "loc: $loc"
+    if [ -z "$loc" ]; then
         echo "使用镜像源"
         node_set="$node_set_2"
         speedtest_cli_tar_url="$speedtest_cli_tar_url_2"
         bim_core_tar_url="$bim_core_tar_url_2"
         speedtest_go_tar_url="$speedtest_go_tar_url_2"
         librespeed_cli_tar_url="$librespeed_cli_tar_url_2"
-    elif [ "$country" != "CN" ]; then
+    elif [ "$loc" != "CN" ]; then
         echo "使用默认源"
         node_set="$node_set_1"
         speedtest_cli_tar_url="$speedtest_cli_tar_url_1"
@@ -862,17 +863,11 @@ _check_output(){
 
 ########## 上传结果 ##########
 _upload_output() {
+    local url_name upload_url share_url admin_url
     # 替换掉输出结果里的颜色代码
     sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
     # 随机取6位作为分享链接名字
-    url_name="speedtest-"
-    word_txt="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    for asdfgh in {1..6}; do
-        random_x="$(( RANDOM % 63 ))"
-        [ "$random_x" -eq "0" ] && random_x="1"
-        random_y="$( echo "$word_txt" | cut -c "$random_x" )"
-        url_name="${url_name}${random_y}"
-    done
+    url_name="speedtest-$( head /dev/random | sha256sum | awk '{ print $1 }' | cut -c 1-6 )"
     upload_url="$( curl -s -Fc="$( cat "$work_dir"/output.txt )" -Fe="7d" -Fn="$url_name" "https://pastebin.xidian.eu.org" )"
     share_url="$( echo "$upload_url" | awk -F'"' '/url/{ print $4 }' )"
     admin_url="$( echo "$upload_url" | awk -F'"' '/admin/{ print $4 }' )"
