@@ -349,11 +349,12 @@ _speedtest_cli_test() {
     awk -F, '{ print $3 }' "$work_dir"/speedtest-cli-node.txt > "$work_dir"/speedtest-cli-option.txt
     _filter_option_speedtest_cli "$work_dir"/speedtest-cli-option.txt "$work_dir"/speedtest-cli-option-filter.txt
     # speedtest-cli测试、输出
-    local option_para count=1
+    local option_para
+    local count="1"
     while IFS= read -r option_para; do
         IFS="$old_IFS"
+        local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
-        local node_name latency jitter download upload download upload
         # speedtest-cli测试
         "$work_dir"/speedtest --accept-license --accept-gdpr -f json-pretty $option_para > "$work_dir"/speedtest-cli-"$count".json 2> "$work_dir"/speedtest-cli-"$count"-error.json
         # speedtest-cli输出
@@ -399,11 +400,12 @@ _bim_core_test() {
     awk -F, '{ print $3 }' "$work_dir"/bim-core-node.txt > "$work_dir"/bim-core-option.txt
     _filter_option_bim_core "$work_dir"/bim-core-option.txt "$work_dir"/bim-core-option-filter.txt
     # bim-core测试、输出
-    local option_para count=1
+    local option_para
+    local count="1"
     while IFS= read -r option_para; do
         IFS="$old_IFS"
+        local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
-        local node_name latency jitter download upload download upload
         # bim-core测试
         "$work_dir"/bim-core $option_para > "$work_dir"/bim-core-"$count".json 2> "$work_dir"/bim-core-"$count"-error.json
         # bim-core输出
@@ -446,16 +448,15 @@ _speedtest_go_test() {
     _filter_option_speedtest_go "$work_dir"/speedtest-go-option.txt "$work_dir"/speedtest-go-option-filter.txt
     # speedtest-go测试、输出
     local option_para
-    local count=1
+    local count="1"
     while IFS= read -r option_para; do
         IFS="$old_IFS"
+        local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # speedtest-go测试
-        local node_name latency jitter download upload
         "$work_dir"/speedtest-go $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
         # speedtest-go输出
         if [ -s "$work_dir"/speedtest-go-"$count".json ] && ! grep -q "Fatal" "$work_dir"/speedtest-go-"$count".json; then
-            local node_name latency jitter download upload
             # 节点名称
             node_name="$( awk -F, NR=="$count"'{ print $2 }' "$work_dir"/speedtest-go-node.txt )"
             # 延迟，ms
@@ -507,12 +508,12 @@ _librespeed_cli_test() {
     _filter_option_librespeed_cli "$work_dir"/lbrespeed-cli-option.txt "$work_dir"/lbrespeed-cli-option-filter.txt
     # librespeed-cli测试、输出
     local option_para
-    local count=1
+    local count="1"
     while IFS= read -r option_para; do
         IFS="$old_IFS"
+        local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # librespeed-cli测试
-        local node_name latency jitter download upload
         "$work_dir"/librespeed-cli --json $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
         # librespeed-cli输出
         if [ -s "$work_dir"/librespeed-cli-"$count".json ]; then
@@ -557,12 +558,12 @@ _iperf3_test() {
     _filter_option_iperf3 "$work_dir"/iperf3-option.txt "$work_dir"/iperf3-option-filter.txt
     # iperf3测试、输出
     local option_para
-    local count=1
+    local count="1"
     while IFS= read -r option_para; do
         IFS="$old_IFS"
+        local node_name download upload latency jitter
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # iperf3测试
-        local node_name latency jitter download upload
         if _check_option "--up-and-down" "$option_para"; then
         # 双向
             option_para="$( echo "$option_para" | awk -F'--up-and-down' '{ print $1 $2 }' )"
@@ -701,12 +702,8 @@ _filter_option_iperf3_1() {
 
 # speedtest-cli
 _filter_option_speedtest_cli() {
-    local file_input="$1"
-    local file_output="$2"
-    local line_input
-    local line_output
-    local column_count
-    local column_all_count
+    local line_input line_output column_count column_all_count
+    local file_input="$1" file_output="$2"
     while IFS= read -r line_input; do
         IFS="$old_IFS"
         line_output=""
@@ -721,12 +718,8 @@ _filter_option_speedtest_cli() {
 
 # bim-core
 _filter_option_bim_core() {
-    local file_input="$1"
-    local file_output="$2"
-    local line_input
-    local line_output
-    local column_count
-    local column_all_count
+    local line_input line_output column_count column_all_count
+    local file_input="$1" file_output="$2"
     while IFS= read -r line_input; do
         IFS="$old_IFS"
         line_output=""
@@ -742,12 +735,8 @@ _filter_option_bim_core() {
 
 # speedtest-go
 _filter_option_speedtest_go() {
-    local file_input="$1"
-    local file_output="$2"
-    local line_input
-    local line_output
-    local column_count
-    local column_all_count
+    local line_input line_output column_count column_all_count
+    local file_input="$1" file_output="$2"
     while IFS= read -r line_input; do
         IFS="$old_IFS"
         line_output=""
@@ -767,12 +756,8 @@ _filter_option_speedtest_go() {
 
 # librespeed-cli
 _filter_option_librespeed_cli() {
-    local file_input="$1"
-    local file_output="$2"
-    local line_input
-    local line_output
-    local column_count
-    local column_all_count
+    local line_input line_output column_count column_all_count
+    local file_input="$1" file_output="$2"
     while IFS= read -r line_input; do
         IFS="$old_IFS"
         line_output=""
@@ -794,12 +779,8 @@ _filter_option_librespeed_cli() {
 
 # iperf3
 _filter_option_iperf3() {
-    local file_input="$1"
-    local file_output="$2"
-    local line_input
-    local line_output
-    local column_count
-    local column_all_count
+    local line_input line_output column_count column_all_count
+    local file_input="$1" file_output="$2"
     while IFS= read -r line_input; do
         IFS="$old_IFS"
         line_output=""
@@ -825,8 +806,7 @@ _filter_option_iperf3() {
 ########## 检测选项，用于预判测速结果 ##########
 
 _check_option() {
-    local option_input="$1"
-    local options_input="$2"
+    local option_input="$1" options_input="$2"
     if echo "$options_input" | grep -q -- "$option_input"; then
         return 0
     else
@@ -836,7 +816,7 @@ _check_option() {
 
 
 _check_num() {
-    local num_input=$1
+    local num_input="$1"
     if [[ "$num_input" =~ ^[0-9]+(\.[0-9]+)?$ ]] && ! [[ "$num_input" =~ ^0+(\.0+)?$ ]]; then
         return 0
     else
@@ -848,8 +828,8 @@ _check_num() {
 ########## 输出 ##########
 
 _check_output(){
-    local count_check_output=0
     local i_check_output
+    local count_check_output="0"
     for i_check_output in $( echo "$download $upload $latency $jitter" ); do
         if [[ "$i_check_output" =~ 失败 ]]; then
             count_check_output=$(( count_check_output + 1 ))
