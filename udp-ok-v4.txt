@@ -4,4 +4,3 @@ iperf3,欧洲 德国           ,-c fra.speedtest.clouvider.net -p 5200-5209 -4 -
 iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
 iperf3,美国 亚特兰大       ,-c atl.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
 iperf3,荷兰 阿姆斯特丹     ,-c ams.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
-iperf3,电信 宿迁 自建      ,-c 3960x.mc5173.cn -p 22222 -4 --up-and-down -P 1 -u

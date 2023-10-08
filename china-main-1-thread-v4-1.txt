@@ -24,4 +24,3 @@ speedtest-go,联通 湖南长沙 5G    ,--custom-url http://speedtest01.hn165.co
 speedtest-go,联通 河南郑州 5G    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,广电 重庆           ,--custom-url http://speedtest1.cqccn.com:8080/speedtest/upload.php --force-http-ping -t 1
 speedtest-go,教育网 江苏苏州     ,--custom-url http://speedtest.dukekunshan.edu.cn:8080/speedtest/upload.php --force-http-ping -t 1
-iperf3      ,电信 宿迁 自建      ,-c 3960x.mc5173.cn -p 22222 -P 1

@@ -23,4 +23,3 @@ bim-core,联通 湖南长沙 5G    ,http://speedtest01.hn165.com:8080/download h
 bim-core,联通 河南郑州 5G    ,http://5gtest.shangdu.com:8080/download http://5gtest.shangdu.com:8080/upload
 bim-core,广电 重庆           ,http://speedtest1.cqccn.com:8080/download http://speedtest1.cqccn.com:8080/upload
 bim-core,教育网 江苏苏州     ,http://speedtest.dukekunshan.edu.cn:8080/download http://speedtest.dukekunshan.edu.cn:8080/upload
-iperf3  ,电信 宿迁 自建      ,-c 3960x.mc5173.cn -p 22222 -P 1
