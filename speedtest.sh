@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-09-21"
+    script_version="v2023-10-10"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
