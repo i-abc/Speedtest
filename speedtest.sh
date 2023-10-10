@@ -206,7 +206,7 @@ _download_tar() {
     curl --progress-bar -o "$work_dir"/speedtest-cli.tgz -L "$speedtest_cli_tar_url"
     echo "$bim_core_tar_url"
     echo "bim-core下载中"
-    curl --progress-bar -o "$work_dir"/bim-core -L "$bim_core_tar_url"
+    [ -n "$bim_core_arch" ] && curl --progress-bar -o "$work_dir"/bim-core -L "$bim_core_tar_url"
     echo "$speedtest_go_tar_url"
     echo "speedtest-go下载中"
     curl --progress-bar -o "$work_dir"/speedtest-go.tar.gz -L "$speedtest_go_tar_url"
@@ -228,7 +228,7 @@ _check_tar_sha256() {
         printf "${red}%-s${endc}\n" "经检测，speedtest-cli的SHA-256与官方不符，方便的话欢迎到GitHub反馈"
         exit 1
     fi
-    if [ "$bim_core_tar_download_sha256" != "$( eval "echo \$bim_core_tar_${bim_core_arch}_sha256" )" ]; then
+    if [ "$bim_core_tar_download_sha256" != "$( eval "echo \$bim_core_tar_${bim_core_arch}_sha256" )" ] && [ -n "$bim_core_arch" ]; then
         printf "${red}%-s${endc}\n" "经检测，bim-core的SHA-256与官方不符，方便的话欢迎到GitHub反馈"
         exit 1
     fi
@@ -322,7 +322,7 @@ _classify_node() {
         if [[ "$first_column" =~ "speedtest-cli" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/speedtest-cli-node.txt
         # bim-core
-        elif [[ "$first_column" =~ "bim-core" ]]; then
+        elif [[ "$first_column" =~ "bim-core" ]] && [ -n "$bim_core_arch" ]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/bim-core-node.txt
         # speedtest-go
         elif [[ "$first_column" =~ "speedtest-go" ]]; then
