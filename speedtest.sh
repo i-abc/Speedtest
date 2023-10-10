@@ -168,14 +168,26 @@ _check_package() {
     # 检测软件包是否安装
     if ! command -v "$1"; then
         # 确认包管理器并安装软件包
+        # RedHat
         if command -v dnf; then
-            dnf -y install "$2"
+            dnf install -y "$2"
         elif command -v yum; then
-            yum -y install "$2"
+            yum install -y "$2"
+        # Debian
         elif command -v apt; then
-            apt -y install "$2"
+            apt install -y "$2"
+        # Alpine
+        elif command -v apk; then
+            apk add "$2"
+        # Arch Linux
+        elif command -v pacman; then
+            pacman -S --noconfirm "$2"
+        # openSUSE
+        elif command -v zypper; then
+            zypper install -y "$2"
         else
-            echo "本机非RedHat、Debian系，暂不支持自动安装所需的软件包"
+            echo "本机非RedHat、Debian、Alpine、Arch Linux、openSUSE"
+            echo "暂不支持自动安装所需的软件包"
             exit 1
         fi
         # 再次检测软件包是否安装
