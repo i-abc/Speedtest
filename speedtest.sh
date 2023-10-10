@@ -22,7 +22,7 @@ _constant() {
     speedtest_cli_tar_armel_sha256="629a455a2879224bd0dbd4b36d8c721dda540717937e4660b4d2c966029466bf"
     speedtest_cli_tar_url=""
     speedtest_cli_tar_url_1="https://install.speedtest.net/app/cli/ookla-speedtest-${speedtest_cli_version}-linux-${speedtest_cli_arch}.tgz"
-    speedtest_cli_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-cli/ookla-speedtest-${speedtest_cli_version}-linux-${speedtest_cli_arch}.tgz"
+    speedtest_cli_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-cli/v${speedtest_cli_version}/ookla-speedtest-${speedtest_cli_version}-linux-${speedtest_cli_arch}.tgz"
 
     # bim-core，https://github.com/veoco/bim-core
     bim_core_version="0.15.2"
@@ -30,7 +30,7 @@ _constant() {
     bim_core_tar_aarch64_sha256="53fb1ab43a5cbede001e4d99c4a5dbc6cee9c2f10c7485f10304e7b78560ec78"
     bim_core_tar_url=""
     bim_core_tar_url_1="https://github.com/veoco/bim-core/releases/download/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
-    bim_core_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/bim-core/bimc-${bim_core_arch}-unknown-linux-musl"
+    bim_core_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/bim-core/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
 
     # speedtest-go，https://github.com/showwin/speedtest-go
     speedtest_go_version="1.6.5"
@@ -41,7 +41,7 @@ _constant() {
     speedtest_go_tar_armv6_sha256="29f4eb5cbfa821aff99897e09ca59e0d8f1e6fb5493ca11e5f14b1705f79b01a"
     speedtest_go_tar_url=""
     speedtest_go_tar_url_1="https://github.com/showwin/speedtest-go/releases/download/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
-    speedtest_go_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-go/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
+    speedtest_go_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-go/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
 
     # librespeed-cli，https://github.com/librespeed/speedtest-cli
     librespeed_cli_version="1.0.10"
@@ -52,7 +52,7 @@ _constant() {
     librespeed_cli_tar_armv6_sha256="def98bbf0e79805411bca312e9e6bcddd12cd0abf4e6584a3ae05aa20c762b64"
     librespeed_cli_tar_url=""
     librespeed_cli_tar_url_1="https://github.com/librespeed/speedtest-cli/releases/download/v${librespeed_cli_version}/librespeed-cli_${librespeed_cli_version}_linux_${librespeed_cli_arch}.tar.gz"
-    librespeed_cli_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/librespeed-cli/librespeed-cli_${librespeed_cli_version}_linux_${librespeed_cli_arch}.tar.gz"
+    librespeed_cli_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/librespeed-cli/v${librespeed_cli_version}/librespeed-cli_${librespeed_cli_version}_linux_${librespeed_cli_arch}.tar.gz"
 
     # 配色
     red='\033[1;31m'
