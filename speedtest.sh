@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-10-10"
+    script_version="v2023-10-12"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -860,7 +860,8 @@ _upload_output() {
     sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
     # 随机取6位作为分享链接名字
     url_name="speedtest-$( head /dev/random | sha256sum | awk '{ print $1 }' | cut -c 1-6 )"
-    upload_url="$( curl -s -Fc="$( cat "$work_dir"/output.txt )" -Fe="7d" -Fn="$url_name" "https://pastebin.xidian.eu.org" )"
+    # 分享链接服务端，https://github.com/SharzyL/pastebin-worker
+    upload_url="$( curl -X POST -s -F "c=@${work_dir}/output.txt" -F "e=7d" -F "n=${url_name}" "https://pastebin.xidian.eu.org" )"
     share_url="$( echo "$upload_url" | awk -F'"' '/url/{ print $4 }' )"
     admin_url="$( echo "$upload_url" | awk -F'"' '/admin/{ print $4 }' )"
     [[ "$share_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n" "分享链接(有效期7天): " "$share_url"
