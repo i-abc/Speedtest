@@ -280,9 +280,9 @@ bash <(curl -sL https://raw.githubusercontent.com/i-abc/Speedtest/main/speedtest
 节点表 模板示例，v2023-09-08
 speedtest-cli ,联通 郑州 cli       ,-o 5gtest.shangdu.com
 bim-core      ,联通 郑州 bimc      ,http://5gtest.shangdu.com:8080/download http://5gtest.shangdu.com:8080/upload
-speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping
-speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 8
-speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping --no-download
+speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http
+speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http -t 8
+speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http --no-download
 librespeed-cli,教育 南京           ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp
 librespeed-cli,教育 南京 只测上传  ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp --no-download
 iperf3        ,联通 宿迁 只测上传  ,-c 103.239.244.210 -p 22222
@@ -370,11 +370,11 @@ download_url 和 upload_url 两者都要，且 download_url 在前、upload_url 
 | -m                | 启用多服务器模式                   | -m                                                               |
 | --no-download     | 禁用下载测试                     | --no-download                                                    |
 | --no-upload       | 禁用上传测试                     | --no-upload                                                      |
-| --force-http-ping | 使用 HTTP 进行强制 Ping，而不是 ICMP | --force-http-ping                                                |
+| --ping-mode value | 选择一种 Ping 的方法 | --ping-mode http                                                |
 
 `-s` 和 `--custom-url` 二选一，`--custom-url` 后面参数为完整链接，含 http(s)、端口、以 `/upload.php` 结尾；推荐 `--custom-url`。
 
-`--force-http-ping` 推荐加上。
+`--ping-mode http` 推荐加上。
 
 节点 id、链接可在 [https://www.speedtest.net/api/ios-config.php](https://www.speedtest.net/api/ios-config.php) 查阅。
 
