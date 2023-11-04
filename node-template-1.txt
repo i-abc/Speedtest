@@ -1,8 +1,8 @@
 节点表 模板示例，v2023-09-08
 speedtest-cli ,联通 郑州 cli       ,-o 5gtest.shangdu.com
-speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping
-speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping -t 8
-speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --force-http-ping --no-download
+speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http
+speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http -t 8
+speedtest-go  ,联通 郑州 只测上传  ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http --no-download
 librespeed-cli,教育 南京           ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp
 librespeed-cli,教育 南京 只测上传  ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 --no-icmp --no-download
 iperf3        ,电信 宿迁 只测上传  ,-c 3960x.mc5173.cn -p 22222
