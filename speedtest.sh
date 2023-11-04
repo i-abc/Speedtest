@@ -757,10 +757,10 @@ _filter_option_speedtest_go() {
             _filter_option_1_para -s --server
             _filter_option_1_para --custom-url --custom-url
             _filter_option_1_para -t --thread
+            _filter_option_1_para --ping-mode --ping-mode
             _filter_option_0_para -m --multi
             _filter_option_0_para --no-download --no-download
             _filter_option_0_para --no-upload --no-upload
-            _filter_option_0_para --force-http-ping --force-http-ping
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
