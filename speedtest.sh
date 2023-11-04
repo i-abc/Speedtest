@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-10-10"
+    script_version="v2023-11-04"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -25,20 +25,20 @@ _constant() {
     speedtest_cli_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-cli/v${speedtest_cli_version}/ookla-speedtest-${speedtest_cli_version}-linux-${speedtest_cli_arch}.tgz"
 
     # bim-core，https://github.com/veoco/bim-core
-    bim_core_version="0.16.0"
-    bim_core_tar_x86_64_sha256="ebb0732545f8e0ca353e0ee49b868974e6130cc09e7abee8f5c49c913d5a25a0"
-    bim_core_tar_aarch64_sha256="e8ffbc19e45a47230df66fbcbd2922efae8d3ac9e0662db2224e592d03c17cb4"
+    bim_core_version="0.17.0"
+    bim_core_tar_x86_64_sha256="109280fbf5a821bc56c2e83b906e65228ebc8436054b2e7861ca6db88f7e0330"
+    bim_core_tar_aarch64_sha256="fa62357f94050fbb7851d1bbb7e393d8e1301281ce03c43b37dae55cbf08c198"
     bim_core_tar_url=""
     bim_core_tar_url_1="https://github.com/veoco/bim-core/releases/download/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
     bim_core_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/bim-core/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
 
     # speedtest-go，https://github.com/showwin/speedtest-go
-    speedtest_go_version="1.6.6"
-    speedtest_go_tar_x86_64_sha256="4b7b52c7df917d177a161cb1f957e74ac3850cb1826669d038608430774dace5"
-    speedtest_go_tar_i386_sha256="49db89a9afb4289e9d276c27ad72aa2700b2fd1f6c968f05397d6dc04da0e707"
-    speedtest_go_tar_arm64_sha256="1c0e393535479c516a4007da6d49be26f40a84677148f9807252d2114b6fd741"
-    speedtest_go_tar_armv7_sha256="e8ff52b4d17409f7be2481e0f508064c6ef66cae63684304c5fdfaa7c185ed6a"
-    speedtest_go_tar_armv6_sha256="e5425a22bfb75966452d08a2bf9b2903f1fa14a12c2380ce567b7fd193167c69"
+    speedtest_go_version="1.6.7"
+    speedtest_go_tar_x86_64_sha256="90d5549975e9cb12adb672b4957edbdac3f5f5f241f6be767e4c4873e6340cc9"
+    speedtest_go_tar_i386_sha256="2f96b584ca32005659b8fd5d57761efc0fbc81ff477ae45817bd465e007e056a"
+    speedtest_go_tar_arm64_sha256="4b83f9db956cd39dc6cce77d63632751254f3a413f696fa1cbc99197246986c6"
+    speedtest_go_tar_armv7_sha256="fb794bc4abc215af138d4de357593352c10cc32f8ffc15d2382b78159b103c6e"
+    speedtest_go_tar_armv6_sha256="79f171174cdcd1ac8f766ac433ae2d89eae58feba6a7607bfc66cd6709dfc2af"
     speedtest_go_tar_url=""
     speedtest_go_tar_url_1="https://github.com/showwin/speedtest-go/releases/download/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
     speedtest_go_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-go/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
@@ -168,14 +168,26 @@ _check_package() {
     # 检测软件包是否安装
     if ! command -v "$1"; then
         # 确认包管理器并安装软件包
+        # RedHat
         if command -v dnf; then
-            dnf -y install "$2"
+            dnf install -y "$2"
         elif command -v yum; then
-            yum -y install "$2"
+            yum install -y "$2"
+        # Debian
         elif command -v apt; then
-            apt -y install "$2"
+            apt install -y "$2"
+        # Alpine
+        elif command -v apk; then
+            apk add "$2"
+        # Arch Linux
+        elif command -v pacman; then
+            pacman -S --noconfirm "$2"
+        # openSUSE
+        elif command -v zypper; then
+            zypper install -y "$2"
         else
-            echo "本机非RedHat、Debian系，暂不支持自动安装所需的软件包"
+            echo "本机非RedHat、Debian、Alpine、Arch Linux、openSUSE"
+            echo "暂不支持自动安装所需的软件包"
             exit 1
         fi
         # 再次检测软件包是否安装
@@ -206,7 +218,7 @@ _download_tar() {
     curl --progress-bar -o "$work_dir"/speedtest-cli.tgz -L "$speedtest_cli_tar_url"
     echo "$bim_core_tar_url"
     echo "bim-core下载中"
-    curl --progress-bar -o "$work_dir"/bim-core -L "$bim_core_tar_url"
+    [ -n "$bim_core_arch" ] && curl --progress-bar -o "$work_dir"/bim-core -L "$bim_core_tar_url"
     echo "$speedtest_go_tar_url"
     echo "speedtest-go下载中"
     curl --progress-bar -o "$work_dir"/speedtest-go.tar.gz -L "$speedtest_go_tar_url"
@@ -228,7 +240,7 @@ _check_tar_sha256() {
         printf "${red}%-s${endc}\n" "经检测，speedtest-cli的SHA-256与官方不符，方便的话欢迎到GitHub反馈"
         exit 1
     fi
-    if [ "$bim_core_tar_download_sha256" != "$( eval "echo \$bim_core_tar_${bim_core_arch}_sha256" )" ]; then
+    if [ "$bim_core_tar_download_sha256" != "$( eval "echo \$bim_core_tar_${bim_core_arch}_sha256" )" ] && [ -n "$bim_core_arch" ]; then
         printf "${red}%-s${endc}\n" "经检测，bim-core的SHA-256与官方不符，方便的话欢迎到GitHub反馈"
         exit 1
     fi
@@ -322,7 +334,7 @@ _classify_node() {
         if [[ "$first_column" =~ "speedtest-cli" ]]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/speedtest-cli-node.txt
         # bim-core
-        elif [[ "$first_column" =~ "bim-core" ]]; then
+        elif [[ "$first_column" =~ "bim-core" ]] && [ -n "$bim_core_arch" ]; then
             awk NR==${i} "$work_dir"/all-node.txt >> "$work_dir"/bim-core-node.txt
         # speedtest-go
         elif [[ "$first_column" =~ "speedtest-go" ]]; then
@@ -356,7 +368,7 @@ _speedtest_cli_test() {
         local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # speedtest-cli测试
-        "$work_dir"/speedtest --accept-license --accept-gdpr -f json-pretty $option_para > "$work_dir"/speedtest-cli-"$count".json 2> "$work_dir"/speedtest-cli-"$count"-error.json
+        timeout --foreground 70 "$work_dir"/speedtest --accept-license --accept-gdpr -f json-pretty $option_para > "$work_dir"/speedtest-cli-"$count".json 2> "$work_dir"/speedtest-cli-"$count"-error.json
         # speedtest-cli输出
         if [ -s "$work_dir"/speedtest-cli-"$count".json ]; then
             # 节点名称
@@ -407,7 +419,7 @@ _bim_core_test() {
         local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # bim-core测试
-        "$work_dir"/bim-core $option_para > "$work_dir"/bim-core-"$count".json 2> "$work_dir"/bim-core-"$count"-error.json
+        timeout --foreground 70 "$work_dir"/bim-core $option_para > "$work_dir"/bim-core-"$count".json 2> "$work_dir"/bim-core-"$count"-error.json
         # bim-core输出
         if [ -s "$work_dir"/bim-core-"$count".json ]; then
             # 节点名称
@@ -454,7 +466,7 @@ _speedtest_go_test() {
         local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # speedtest-go测试
-        "$work_dir"/speedtest-go $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
+        timeout --foreground 70 "$work_dir"/speedtest-go $option_para > "$work_dir"/speedtest-go-"$count".json 2> "$work_dir"/speedtest-go-"$count"-error.json
         # speedtest-go输出
         if [ -s "$work_dir"/speedtest-go-"$count".json ] && ! grep -q "Fatal" "$work_dir"/speedtest-go-"$count".json; then
             # 节点名称
@@ -514,7 +526,7 @@ _librespeed_cli_test() {
         local node_name latency jitter download upload
         local download_c="15" upload_c="15" latency_c="13" jitter_c="13"
         # librespeed-cli测试
-        "$work_dir"/librespeed-cli --json $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
+        timeout --foreground 70 "$work_dir"/librespeed-cli --json $option_para > "$work_dir"/librespeed-cli-"$count".json 2> "$work_dir"/librespeed-cli-"$count"-error.json
         # librespeed-cli输出
         if [ -s "$work_dir"/librespeed-cli-"$count".json ]; then
             # 节点名称
@@ -745,10 +757,10 @@ _filter_option_speedtest_go() {
             _filter_option_1_para -s --server
             _filter_option_1_para --custom-url --custom-url
             _filter_option_1_para -t --thread
+            _filter_option_1_para --ping-mode --ping-mode
             _filter_option_0_para -m --multi
             _filter_option_0_para --no-download --no-download
             _filter_option_0_para --no-upload --no-upload
-            _filter_option_0_para --force-http-ping --force-http-ping
         done
         echo "$line_output" >> "$file_output"
     done < "$file_input"
@@ -848,7 +860,8 @@ _upload_output() {
     sed -i 's)\x1B[[0-9;]*m))g' "$work_dir"/output.txt
     # 随机取6位作为分享链接名字
     url_name="speedtest-$( head /dev/random | sha256sum | awk '{ print $1 }' | cut -c 1-6 )"
-    upload_url="$( curl -s -Fc="$( cat "$work_dir"/output.txt )" -Fe="7d" -Fn="$url_name" "https://pastebin.xidian.eu.org" )"
+    # 分享链接服务端，https://github.com/SharzyL/pastebin-worker
+    upload_url="$( curl -X POST -s -F "c=@${work_dir}/output.txt" -F "e=7d" -F "n=${url_name}" "https://pastebin.xidian.eu.org" )"
     share_url="$( echo "$upload_url" | awk -F'"' '/url/{ print $4 }' )"
     admin_url="$( echo "$upload_url" | awk -F'"' '/admin/{ print $4 }' )"
     [[ "$share_url" =~ ^https://pastebin.xidian.eu.org/ ]] && printf "${yellow}%-s${endc}%-s\n" "分享链接(有效期7天): " "$share_url"
