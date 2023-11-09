@@ -27,4 +27,4 @@ librespeed-cli,教育网 北京         ,--server-json https://jihulab.com/i-abc
 librespeed-cli,教育网 上海         ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 3 -4 --no-icmp
 librespeed-cli,教育网 江苏南京     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 1 -4 --no-icmp
 librespeed-cli,教育网 安徽合肥     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 5 -4 --no-icmp
-speedtest-cli ,教育网 江苏苏州     ,-o speedtest.dukekunshan.edu.cn
+librespeed-cli,教育网 浙江杭州     ,--server-json https://jihulab.com/i-abc/speedtest/-/raw/node/china-education.json --server 9 -4 --no-icmp
