@@ -70,5 +70,14 @@
     "ulURL": "/empty.php",
     "pingURL": "/empty.php",
     "getIpURL": "/getIP.php"
+  },
+  {
+    "id": 9,
+    "name": "浙江大学 v4",
+    "server": "http://speedtest.zju.edu.cn",
+    "dlURL": "/garbage.php",
+    "ulURL": "/empty.php",
+    "pingURL": "/empty.php",
+    "getIpURL": "/getIP.php"
   }
 ]

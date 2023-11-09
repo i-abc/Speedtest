@@ -1,4 +1,4 @@
-节点表 模板示例，v2023-09-08
+节点表 模板示例，v2023-11-09
 speedtest-cli ,联通 郑州 cli       ,-o 5gtest.shangdu.com
 speedtest-go  ,联通 郑州 go        ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http
 speedtest-go  ,联通 郑州 八线程    ,--custom-url http://5gtest.shangdu.com:8080/speedtest/upload.php --ping-mode http -t 8

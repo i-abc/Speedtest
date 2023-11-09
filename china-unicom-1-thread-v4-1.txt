@@ -1,4 +1,4 @@
-大陆联通 IPv4 单线程测速，v2023-09-08
+大陆联通 IPv4 单线程测速，v2023-11-09
 speedtest-go,最近的测速点        ,--ping-mode http -t 1
 speedtest-go,联通 江苏无锡       ,--custom-url https://speedtest2.niutk.com:8080/speedtest/upload.php --ping-mode http -t 1
 speedtest-go,联通 四川成都       ,--custom-url http://speedtest.cnscn96655.com:8080/speedtest/upload.php  --ping-mode http -t 1

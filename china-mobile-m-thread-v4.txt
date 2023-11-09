@@ -1,4 +1,4 @@
-大陆移动 IPv4 多线程测速，v2023-09-08
+大陆移动 IPv4 多线程测速，v2023-11-09
 speedtest-cli,最近的测速点        ,
 speedtest-cli,移动 北京           ,-o speedtest.bmcc.com.cn
 speedtest-cli,移动 四川成都       ,-o speedtest1.sc.chinamobile.com

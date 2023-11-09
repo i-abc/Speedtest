@@ -1,4 +1,4 @@
-IPV4 UDP 可用性测试，v2023-09-08
+IPV4 UDP 可用性测试，v2023-11-09
 机房UDP限速，结果仅代表UDP是否可用，若没输出则代表UDP不可用
 iperf3,欧洲 德国           ,-c fra.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
 iperf3,美国 阿什本         ,-c ash.speedtest.clouvider.net -p 5200-5209 -4 --up-and-down -P 1 -u
