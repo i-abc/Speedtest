@@ -33,12 +33,12 @@ _constant() {
     bim_core_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/bim-core/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
 
     # speedtest-go，https://github.com/showwin/speedtest-go
-    speedtest_go_version="1.6.8"
-    speedtest_go_tar_x86_64_sha256="1e9daec77e1c67abc476f50fafa5da1b2523a9ef083190fea536e24cf182337e"
-    speedtest_go_tar_i386_sha256="79ba5364d4af6e35305ef985e5d864b519e3f29fd4ccd4677c7366a11389fe91"
-    speedtest_go_tar_arm64_sha256="1debb224ca6640f8111a7693f6ddc746fc2ba5568e506eb464a2db996bea4fce"
-    speedtest_go_tar_armv7_sha256="4d3c4983c9f3ad995c87276eda545ccc1dbdc14157b6a455eca73d31425bc2c7"
-    speedtest_go_tar_armv6_sha256="c3ce9eaea311c245254c018db1c6012204620b8eba45bcb803405bced13fe727"
+    speedtest_go_version="1.6.9"
+    speedtest_go_tar_x86_64_sha256="0e179818fe42913dccb8c6bf6db940c067b9eca9557b4d11ff2721cb70e7eefd"
+    speedtest_go_tar_i386_sha256="f2f374ce79aa6b36e7a8c5db3601db4a7622a902c18cc42d502800c68c6667de"
+    speedtest_go_tar_arm64_sha256="cb10ceb476fb6c8702e3af77e54022ffe30e9d2fd4b85936a9966f5dd7f3037d"
+    speedtest_go_tar_armv7_sha256="8e9db4688e0d405230b7d00fbd904b1f3ab7635c52d1b65d8ff38d58d9260294"
+    speedtest_go_tar_armv6_sha256="bcca71c5daf2f9d9271709bbeddff26e63089a3be4ab3a2466f7a932ae8bec31"
     speedtest_go_tar_url=""
     speedtest_go_tar_url_1="https://github.com/showwin/speedtest-go/releases/download/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
     speedtest_go_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-go/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
