@@ -1,4 +1,6 @@
 # 多功能测速脚本
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fi-abc%2FSpeedtest.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fi-abc%2FSpeedtest?ref=badge_shield)
+
 
 兼容 [speedtest-cli](https://www.speedtest.net/zh-Hans/apps/cli)、[bim-core](https://github.com/veoco/bim-core)、[speedtest-go](https://github.com/showwin/speedtest-go)、[librespeed-cli](https://github.com/librespeed/speedtest-cli)、[iperf3](https://github.com/esnet/iperf)。
 
@@ -453,3 +455,7 @@ iperf3 默认是客户端发送、服务端接收，也就是测上传；想测�
 只需选择时输入序号 `0`，然后填写链接或本地绝对路径即可；链接为节点表就立即开始测试，链接为节点集合表就还会出现选择节点的提示。
 
 ![](https://github.com/i-abc/Speedtest/raw/main/images/6.png)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fi-abc%2FSpeedtest.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fi-abc%2FSpeedtest?ref=badge_large)
