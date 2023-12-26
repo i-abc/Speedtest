@@ -34,11 +34,11 @@ _constant() {
 
     # speedtest-go，https://github.com/showwin/speedtest-go
     speedtest_go_version="1.6.9"
-    speedtest_go_tar_x86_64_sha256="0e179818fe42913dccb8c6bf6db940c067b9eca9557b4d11ff2721cb70e7eefd"
-    speedtest_go_tar_i386_sha256="f2f374ce79aa6b36e7a8c5db3601db4a7622a902c18cc42d502800c68c6667de"
-    speedtest_go_tar_arm64_sha256="cb10ceb476fb6c8702e3af77e54022ffe30e9d2fd4b85936a9966f5dd7f3037d"
-    speedtest_go_tar_armv7_sha256="8e9db4688e0d405230b7d00fbd904b1f3ab7635c52d1b65d8ff38d58d9260294"
-    speedtest_go_tar_armv6_sha256="bcca71c5daf2f9d9271709bbeddff26e63089a3be4ab3a2466f7a932ae8bec31"
+    speedtest_go_tar_x86_64_sha256="1da0afb6164dcefc2bcbfffa5c976e6b83304c7fd407eafa8018c33bd325bb3f"
+    speedtest_go_tar_i386_sha256="631f083af3c1931a53ed67d182dc7b1fbc5202f03607cdfabb1abb8499b74ef9"
+    speedtest_go_tar_arm64_sha256="245abaea78214866b1eac372dca752a74fab2eb1293929c57a779a65187c33eb"
+    speedtest_go_tar_armv7_sha256="b058b82fcf977a8ad03a7bc0977113bda47437f535f95ae86a8023c67e446aed"
+    speedtest_go_tar_armv6_sha256="0a049a1280d45538b1e76bfe9498a86070f48631f59c2676e1756907528e531e"
     speedtest_go_tar_url=""
     speedtest_go_tar_url_1="https://github.com/showwin/speedtest-go/releases/download/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
     speedtest_go_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/speedtest-go/v${speedtest_go_version}/speedtest-go_${speedtest_go_version}_Linux_${speedtest_go_arch}.tar.gz"
