@@ -4,7 +4,7 @@
 ######### 自定义常量 ##########
 
 _constant() {
-    script_version="v2023-11-17"
+    script_version="v2023-12-26"
     old_IFS="$IFS"
     work_dir="./sp-github-i-abc"
     node_set=""
@@ -33,7 +33,7 @@ _constant() {
     bim_core_tar_url_2="https://jihulab.com/i-abc/speedtest/-/raw/asset/bim-core/v${bim_core_version}/bimc-${bim_core_arch}-unknown-linux-musl"
 
     # speedtest-go，https://github.com/showwin/speedtest-go
-    speedtest_go_version="1.6.9"
+    speedtest_go_version="1.6.10"
     speedtest_go_tar_x86_64_sha256="1da0afb6164dcefc2bcbfffa5c976e6b83304c7fd407eafa8018c33bd325bb3f"
     speedtest_go_tar_i386_sha256="631f083af3c1931a53ed67d182dc7b1fbc5202f03607cdfabb1abb8499b74ef9"
     speedtest_go_tar_arm64_sha256="245abaea78214866b1eac372dca752a74fab2eb1293929c57a779a65187c33eb"
